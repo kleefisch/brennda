@@ -9,15 +9,14 @@ import {
   Phone, 
   Mail, 
   Clock, 
-  MessageCircle,
+  MessageCircle, 
   Send 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-
-const contactSchema = z.object({
+import WhatsAppLogo from "@/components/icons/whatsapp-logo";const contactSchema = z.object({
   name: z.string()
     .min(2, "Nome deve ter pelo menos 2 caracteres")
     .max(100, "Nome deve ter no máximo 100 caracteres"),
@@ -152,7 +151,7 @@ const ContactSection = () => {
             {/* WhatsApp CTA */}
             <div className="mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
               <div className="flex items-center space-x-3 mb-3">
-                <MessageCircle className="h-6 w-6 text-green-600" />
+                <WhatsAppLogo className="text-green-600" size={24} />
                 <h4 className="font-semibold text-green-900">
                   Atendimento WhatsApp 24h
                 </h4>
@@ -160,12 +159,13 @@ const ContactSection = () => {
               <p className="text-green-700 mb-4">
                 Para urgências ou dúvidas rápidas, fale conosco pelo WhatsApp.
               </p>
-              <Button asChild className="bg-green-600 hover:bg-green-700">
+              <Button asChild className="bg-green-600 hover:bg-green-700 text-white border-0 px-6 py-3 text-base font-semibold">
                 <a 
                   href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <WhatsAppLogo className="mr-2" size={16} />
                   Falar no WhatsApp
                 </a>
               </Button>
@@ -196,12 +196,12 @@ const ContactSection = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <Label htmlFor="name">Nome Completo*</Label>
+                <Label htmlFor="name" className="text-principal font-medium">Nome Completo*</Label>
                 <Input
                   id="name"
                   {...register('name')}
                   placeholder="Seu nome completo"
-                  className="mt-1"
+                  className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
                 {errors.name && (
                   <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>
@@ -209,13 +209,13 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <Label htmlFor="email">E-mail*</Label>
+                <Label htmlFor="email" className="text-principal font-medium">E-mail*</Label>
                 <Input
                   id="email"
                   type="email"
                   {...register('email')}
                   placeholder="seu@email.com"
-                  className="mt-1"
+                  className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
                 {errors.email && (
                   <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
@@ -223,12 +223,12 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <Label htmlFor="subject">Assunto*</Label>
+                <Label htmlFor="subject" className="text-principal font-medium">Assunto*</Label>
                 <Input
                   id="subject"
                   {...register('subject')}
                   placeholder="Assunto da sua consulta"
-                  className="mt-1"
+                  className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
                 {errors.subject && (
                   <p className="text-red-600 text-sm mt-1">{errors.subject.message}</p>
@@ -236,13 +236,13 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <Label htmlFor="message">Mensagem*</Label>
+                <Label htmlFor="message" className="text-principal font-medium">Mensagem*</Label>
                 <Textarea
                   id="message"
                   {...register('message')}
                   placeholder="Descreva sua situação ou dúvida..."
                   rows={5}
-                  className="mt-1"
+                  className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
                 {errors.message && (
                   <p className="text-red-600 text-sm mt-1">{errors.message.message}</p>
@@ -252,7 +252,7 @@ const ContactSection = () => {
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full"
+                className="w-full bg-principal hover:bg-principal/90 text-claro border-0 px-8 py-4 text-lg font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -269,7 +269,7 @@ const ContactSection = () => {
               </Button>
             </form>
 
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-sm text-gray-600 mt-4">
               * Campos obrigatórios. Seus dados são tratados com total confidencialidade.
             </p>
           </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Scale, MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
+import WhatsAppLogo from "@/components/icons/whatsapp-logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -140,7 +141,7 @@ const Footer = () => {
               </p>
               <Link
                 href="/contato"
-                className="inline-block w-full text-center bg-accent text-white py-2 px-4 rounded font-medium hover:bg-accent/90 transition-colors text-sm"
+                className="inline-block w-full text-center bg-destaque text-claro py-2 px-4 rounded font-medium hover:bg-destaque/90 transition-colors text-sm"
               >
                 Agendar Agora
               </Link>

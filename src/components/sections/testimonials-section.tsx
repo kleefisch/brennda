@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-claro p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               {/* Quote Icon */}
               <div className="mb-4">
@@ -108,13 +108,13 @@ const TestimonialsSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-700 mb-4">
             Quer ser nosso próximo cliente satisfeito?
           </p>
-          <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+          <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
             <div className="flex items-center">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
               ))}
             </div>
             <span>4.9/5 estrelas baseado em 50+ avaliações</span>

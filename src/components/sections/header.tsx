@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Scale, ChevronDown } from "lucide-react";
+import { Menu, X, Scale, ChevronDown, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -77,8 +77,11 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <Button asChild className="bg-destaque hover:bg-destaque/80 text-principal">
-              <Link href="/contato">Consulta Gratuita</Link>
+            <Button asChild className="bg-destaque hover:bg-destaque/90 text-claro border-0">
+              <Link href="/contato">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Agendar Atendimento
+              </Link>
             </Button>
           </nav>
 
@@ -99,7 +102,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-gray-600">
+          <nav className="md:hidden py-4 border-t border-destaque/30 bg-principal/95 backdrop-blur-sm">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <div key={item.name}>
@@ -113,7 +116,7 @@ const Header = () => {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="text-gray-300 hover:text-destaque transition-colors block px-2 py-1"
+                            className="text-gray-200 hover:text-destaque transition-colors block px-2 py-1"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.name}
@@ -132,9 +135,10 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <Button asChild className="mx-2 bg-destaque hover:bg-destaque/80 text-principal">
+              <Button asChild className="mx-2 mt-2 bg-destaque hover:bg-destaque/90 text-claro font-semibold border-0">
                 <Link href="/contato" onClick={() => setIsMenuOpen(false)}>
-                  Consulta Gratuita
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Agendar Atendimento
                 </Link>
               </Button>
             </div>

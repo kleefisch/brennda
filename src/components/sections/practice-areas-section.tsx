@@ -7,9 +7,11 @@ import {
   Users,
   Home,
   Briefcase,
-  Scale
+  Scale,
+  MessageCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+// importação removida, usando SVG estático
 
 const practiceAreas = [
   {
@@ -71,7 +73,7 @@ const PracticeAreasSection = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             Áreas de Atuação
           </h2>
-          <p className="text-xl text-secundario max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Oferecemos soluções jurídicas especializadas com foco na defesa dos seus 
             direitos e interesses, sempre com atendimento personalizado e estratégias eficazes.
           </p>
@@ -85,16 +87,16 @@ const PracticeAreasSection = () => {
               <Link
                 key={index}
                 href={area.href}
-                className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group bg-claro p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-principal/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-principal/20 transition-colors">
-                    <IconComponent className="h-8 w-8 text-principal" />
+                  <div className="w-16 h-16 bg-destaque/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-destaque/20 transition-colors">
+                    <IconComponent className="h-8 w-8 text-destaque group-hover:text-principal transition-colors" />
                   </div>
                   <h3 className="text-lg font-semibold text-principal mb-2 group-hover:text-destaque transition-colors">
                     {area.title}
                   </h3>
-                  <p className="text-secundario text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {area.description}
                   </p>
                 </div>
@@ -105,12 +107,13 @@ const PracticeAreasSection = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-secundario mb-6">
+          <p className="text-gray-700 mb-6">
             Precisa de orientação jurídica em alguma dessas áreas?
           </p>
-          <Button size="lg" asChild className="bg-principal hover:bg-principal/90 text-claro">
-            <Link href="/contato">
-              Fale Conosco
+          <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
+            <Link href="/contato" className="flex items-center gap-2">
+              <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
+              <span className="uppercase">Falar no WhatsApp</span>
             </Link>
           </Button>
         </div>

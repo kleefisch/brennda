@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -70,14 +71,14 @@ const FAQSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-principal/60 backdrop-blur-sm rounded-lg px-6 border border-destaque/20"
+                className="bg-white rounded-lg px-6 border border-gray-200 hover:shadow-sm transition-shadow"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="font-semibold text-claro pr-4">
+                <AccordionTrigger className="text-left hover:no-underline py-6 hover:text-destaque transition-colors">
+                  <span className="font-semibold text-destaque pr-4">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="pb-6 text-gray-300 leading-relaxed">
+                <AccordionContent className="pb-6 text-gray-600 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -86,28 +87,25 @@ const FAQSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 p-8 bg-primary/5 rounded-xl">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+        <div className="text-center mt-12 bg-claro/10 backdrop-blur-sm rounded-xl border border-destaque/20 max-w-4xl mx-auto px-0 pt-8 pb-8">
+          <h3 className="text-xl font-semibold text-claro mb-2">
             Ainda tem dúvidas?
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-200 mb-4">
             Entre em contato conosco para uma consulta gratuita e personalizada.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+5511999999999"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Ligar Agora
-            </a>
-            <a 
-              href="https://wa.me/5511999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"
-            >
-              WhatsApp
-            </a>
+            <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
+              <a
+                href="https://wa.me/5511999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
+                <span className="uppercase">Fale agora com a advogada</span>
+              </a>
+            </Button>
           </div>
         </div>
       </div>

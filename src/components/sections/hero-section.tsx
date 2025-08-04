@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+// importação removida, usando SVG estático
 import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
 
 const HeroSection = () => {
@@ -17,22 +18,15 @@ const HeroSection = () => {
               <span className="text-destaque"> excelência</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Advocacia especializada com mais de 10 anos de experiência em
-              Direito de Família, Civil, Contratos e Direito do Consumidor. 
-              Atendimento personalizado e soluções jurídicas eficazes.
+              Conte com uma advogada que luta incansavelmente pelos seus interesses com a determinação e estratégia que você merece.
             </p>
             
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/80 text-principal">
-                <Link href="/contato">
-                  Consulta Gratuita
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="border-destaque text-destaque hover:bg-destaque hover:text-principal">
-                <Link href="/areas-de-atuacao">
-                  Áreas de Atuação
+              <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
+                <Link href="/contato" className="flex items-center gap-2">
+                  <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
+                  <span className="uppercase">Fale com a Advogada</span>
                 </Link>
               </Button>
             </div>
@@ -53,14 +47,14 @@ const HeroSection = () => {
           {/* Imagem */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-destaque/20 to-claro/10 rounded-full blur-3xl"></div>
+              <div className="absolute inset-0 bg-white/5 rounded-2xl"></div>
               <Image
-                src={LAWYER_PLACEHOLDERS.portrait}
+                src="/images/hero-picture.png"
                 alt="Dra. Brennda - Advogada especializada"
-                width={400}
-                height={500}
+                width={550}
+                height={700}
                 priority
-                className="relative rounded-2xl shadow-2xl object-cover"
+                className="relative rounded-2xl shadow-2xl object-cover w-full max-w-lg lg:max-w-xl h-auto"
               />
             </div>
           </div>

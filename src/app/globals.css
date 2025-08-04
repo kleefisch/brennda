@@ -67,27 +67,45 @@ body {
 
 /* Classes utilitárias para as cores específicas */
 .bg-principal {
-  background-color: var(--background-principal);
+  background-color: var(--background-principal) !important;
 }
 
 .bg-secundario {
-  background-color: var(--background-secundario);
+  background-color: var(--background-secundario) !important;
 }
 
+.bg-destaque {
+  background-color: var(--texto-destaque) !important;
+}
+
+.bg-claro {
+  background-color: var(--texto-claro) !important;
+}
+
+/* Hover states para botões */
+.hover\:bg-destaque\/90:hover {
+  background-color: rgba(154, 145, 98, 0.9) !important;
+}
+
+.hover\:bg-principal\/90:hover {
+  background-color: rgba(30, 46, 69, 0.9) !important;
+}
+
+/* Cores de texto personalizadas */
 .text-principal {
-  color: var(--texto-primario);
+  color: var(--texto-primario) !important;
 }
 
 .text-secundario {
-  color: var(--texto-secundario);
+  color: var(--texto-secundario) !important;
 }
 
 .text-destaque {
-  color: var(--texto-destaque);
+  color: var(--texto-destaque) !important;
 }
 
 .text-claro {
-  color: var(--texto-claro);
+  color: var(--texto-claro) !important;
 }
 
 /* Smooth scrolling */
