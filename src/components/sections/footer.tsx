@@ -1,0 +1,188 @@
+import Link from "next/link";
+import { Scale, MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const quickLinks = [
+    { name: "Início", href: "/" },
+    { name: "A Advogada", href: "/a-advogada" },
+    { name: "Áreas de Atuação", href: "/areas-de-atuacao" },
+    { name: "Artigos", href: "/artigos" },
+    { name: "Contato", href: "/contato" },
+  ];
+
+  const services = [
+    { name: "Direito de Família", href: "/servicos/familia-e-sucessoes" },
+    { name: "Direito Civil", href: "/servicos/direito-civil" },
+    { name: "Contratos", href: "/servicos/contratos" },
+    { name: "Direito do Consumidor", href: "/servicos/direito-do-consumidor" },
+  ];
+
+  const legalLinks = [
+    { name: "Política de Privacidade", href: "/politica-privacidade" },
+    { name: "Termos de Uso", href: "/termos-uso" },
+    { name: "Cookies", href: "/cookies" },
+  ];
+
+  const socialLinks = [
+    { name: "Facebook", href: "https://facebook.com", icon: Facebook },
+    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
+    { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  ];
+
+  return (
+    <footer className="bg-gray-900 text-gray-300">
+      {/* Main Footer */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand & Contact */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center space-x-2 mb-6">
+              <Scale className="h-8 w-8 text-accent" />
+              <span className="font-bold text-xl text-white">
+                Dra. Brennda
+              </span>
+            </Link>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Advocacia especializada com mais de 10 anos de experiência, 
+              oferecendo soluções jurídicas personalizadas e eficazes.
+            </p>
+            
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                <span className="text-sm">
+                  Rua da Consolação, 1234 - Centro, SP
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 text-accent flex-shrink-0" />
+                <span className="text-sm">(11) 99999-9999</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-4 w-4 text-accent flex-shrink-0" />
+                <span className="text-sm">contato@brennda-advocacia.com.br</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Clock className="h-4 w-4 text-accent flex-shrink-0" />
+                <span className="text-sm">Seg-Sex: 9h-18h | Sáb: 9h-13h</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-semibold text-white mb-6">Links Rápidos</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-400 hover:text-accent transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="font-semibold text-white mb-6">Serviços</h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link 
+                    href={service.href}
+                    className="text-gray-400 hover:text-accent transition-colors text-sm"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter & Social */}
+          <div>
+            <h3 className="font-semibold text-white mb-6">Conecte-se</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Siga-nos nas redes sociais para dicas jurídicas e novidades.
+            </p>
+            
+            {/* Social Links */}
+            <div className="flex space-x-4 mb-6">
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                    aria-label={social.name}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* CTA */}
+            <div className="bg-gray-800 p-4 rounded-lg">
+              <h4 className="font-semibold text-white mb-2">Consulta Gratuita</h4>
+              <p className="text-gray-400 text-sm mb-3">
+                Agende sua consulta gratuita hoje mesmo.
+              </p>
+              <Link
+                href="/contato"
+                className="inline-block w-full text-center bg-accent text-white py-2 px-4 rounded font-medium hover:bg-accent/90 transition-colors text-sm"
+              >
+                Agendar Agora
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Footer */}
+      <div className="border-t border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            {/* Copyright */}
+            <div className="text-sm text-gray-400">
+              © {currentYear} Dra. Brennda Advocacia. Todos os direitos reservados.
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex space-x-6">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-gray-400 hover:text-accent transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* OAB Info */}
+          <div className="mt-4 pt-4 border-t border-gray-800 text-center">
+            <p className="text-xs text-gray-500">
+              Dra. Brennda Silva - OAB/SP 123.456 | 
+              Este site está em conformidade com o Código de Ética da OAB
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
