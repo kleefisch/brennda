@@ -97,14 +97,14 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             Entre em Contato
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Pronto para defender seus direitos? Entre em contato conosco e 
             agende sua consulta gratuita. Estamos aqui para ajudar você.
           </p>
@@ -113,7 +113,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Informações de Contato */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+            <h3 className="text-2xl font-bold text-principal mb-8">
               Informações para Contato
             </h3>
             
@@ -122,18 +122,18 @@ const ContactSection = () => {
                 const IconComponent = info.icon;
                 return (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 bg-destaque/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="h-6 w-6 text-destaque" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">
+                      <h4 className="font-semibold text-principal mb-1">
                         {info.title}
                       </h4>
-                      <div className="text-gray-600 whitespace-pre-line">
+                      <div className="text-gray-700 whitespace-pre-line">
                         {info.link ? (
                           <a 
                             href={info.link}
-                            className="hover:text-primary transition-colors"
+                            className="hover:text-destaque transition-colors"
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
@@ -173,8 +173,8 @@ const ContactSection = () => {
           </div>
 
           {/* Formulário */}
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-claro p-8 rounded-xl shadow-sm">
+            <h3 className="text-2xl font-bold text-principal mb-6">
               Envie sua Mensagem
             </h3>
 

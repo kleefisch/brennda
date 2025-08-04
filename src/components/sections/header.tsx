@@ -33,13 +33,13 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="sticky top-0 z-50 w-full bg-principal backdrop-blur-sm border-b border-gray-600">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Scale className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl text-primary">
+            <Scale className="h-8 w-8 text-destaque" />
+            <span className="font-bold text-xl text-claro">
               Dra. Brennda
             </span>
           </Link>
@@ -50,7 +50,7 @@ const Header = () => {
               <div key={item.name}>
                 {item.submenu ? (
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors">
+                    <DropdownMenuTrigger className="flex items-center space-x-1 text-claro hover:text-destaque transition-colors">
                       <span>{item.name}</span>
                       <ChevronDown className="h-4 w-4" />
                     </DropdownMenuTrigger>
@@ -70,14 +70,14 @@ const Header = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-primary transition-colors"
+                    className="text-claro hover:text-destaque transition-colors"
                   >
                     {item.name}
                   </Link>
                 )}
               </div>
             ))}
-            <Button asChild>
+            <Button asChild className="bg-destaque hover:bg-destaque/80 text-principal">
               <Link href="/contato">Consulta Gratuita</Link>
             </Button>
           </nav>
@@ -86,7 +86,7 @@ const Header = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden"
+            className="md:hidden text-claro hover:text-destaque hover:bg-white/10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -99,13 +99,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-gray-200">
+          <nav className="md:hidden py-4 border-t border-gray-600">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <div key={item.name}>
                   {item.submenu ? (
                     <div>
-                      <span className="text-gray-700 font-medium block px-2 py-2">
+                      <span className="text-claro font-medium block px-2 py-2">
                         {item.name}
                       </span>
                       <div className="ml-4 space-y-2">
@@ -113,7 +113,7 @@ const Header = () => {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="text-gray-600 hover:text-primary transition-colors block px-2 py-1"
+                            className="text-gray-300 hover:text-destaque transition-colors block px-2 py-1"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.name}
@@ -124,7 +124,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-gray-700 hover:text-primary transition-colors block px-2 py-2"
+                      className="text-claro hover:text-destaque transition-colors block px-2 py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
@@ -132,7 +132,7 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <Button asChild className="mx-2">
+              <Button asChild className="mx-2 bg-destaque hover:bg-destaque/80 text-principal">
                 <Link href="/contato" onClick={() => setIsMenuOpen(false)}>
                   Consulta Gratuita
                 </Link>

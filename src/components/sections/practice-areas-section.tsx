@@ -64,14 +64,14 @@ const practiceAreas = [
 
 const PracticeAreasSection = () => {
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             Áreas de Atuação
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-secundario max-w-3xl mx-auto">
             Oferecemos soluções jurídicas especializadas com foco na defesa dos seus 
             direitos e interesses, sempre com atendimento personalizado e estratégias eficazes.
           </p>
@@ -88,13 +88,13 @@ const PracticeAreasSection = () => {
                 className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <IconComponent className="h-8 w-8 text-primary" />
+                  <div className="w-16 h-16 bg-principal/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-principal/20 transition-colors">
+                    <IconComponent className="h-8 w-8 text-principal" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg font-semibold text-principal mb-2 group-hover:text-destaque transition-colors">
                     {area.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-secundario text-sm leading-relaxed">
                     {area.description}
                   </p>
                 </div>
@@ -105,10 +105,10 @@ const PracticeAreasSection = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-gray-600 mb-6">
+          <p className="text-secundario mb-6">
             Precisa de orientação jurídica em alguma dessas áreas?
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="bg-principal hover:bg-principal/90 text-claro">
             <Link href="/contato">
               Fale Conosco
             </Link>

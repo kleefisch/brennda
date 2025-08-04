@@ -32,15 +32,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-principal text-gray-300">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand & Contact */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <Scale className="h-8 w-8 text-accent" />
-              <span className="font-bold text-xl text-white">
+              <Scale className="h-8 w-8 text-destaque" />
+              <span className="font-bold text-xl text-claro">
                 Dra. Brennda
               </span>
             </Link>
@@ -52,21 +52,21 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">
                   Rua da Consolação, 1234 - Centro, SP
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-accent flex-shrink-0" />
+                <Phone className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">(11) 99999-9999</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-accent flex-shrink-0" />
+                <Mail className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">contato@brennda-advocacia.com.br</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Clock className="h-4 w-4 text-accent flex-shrink-0" />
+                <Clock className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">Seg-Sex: 9h-18h | Sáb: 9h-13h</span>
               </div>
             </div>
@@ -74,13 +74,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-white mb-6">Links Rápidos</h3>
+            <h3 className="font-semibold text-claro mb-6">Links Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-400 hover:text-accent transition-colors text-sm"
+                    className="text-gray-400 hover:text-destaque transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -91,13 +91,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-white mb-6">Serviços</h3>
+            <h3 className="font-semibold text-claro mb-6">Serviços</h3>
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.name}>
                   <Link 
                     href={service.href}
-                    className="text-gray-400 hover:text-accent transition-colors text-sm"
+                    className="text-gray-400 hover:text-destaque transition-colors text-sm"
                   >
                     {service.name}
                   </Link>
@@ -108,7 +108,7 @@ const Footer = () => {
 
           {/* Newsletter & Social */}
           <div>
-            <h3 className="font-semibold text-white mb-6">Conecte-se</h3>
+            <h3 className="font-semibold text-claro mb-6">Conecte-se</h3>
             <p className="text-gray-400 text-sm mb-4">
               Siga-nos nas redes sociais para dicas jurídicas e novidades.
             </p>
@@ -123,7 +123,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-colors"
+                    className="w-10 h-10 bg-principal/60 rounded-lg flex items-center justify-center hover:bg-destaque hover:text-principal transition-colors"
                     aria-label={social.name}
                   >
                     <IconComponent className="h-5 w-5" />
@@ -133,8 +133,8 @@ const Footer = () => {
             </div>
 
             {/* CTA */}
-            <div className="bg-gray-800 p-4 rounded-lg">
-              <h4 className="font-semibold text-white mb-2">Consulta Gratuita</h4>
+            <div className="bg-principal/60 backdrop-blur-sm border border-destaque/20 p-4 rounded-lg">
+              <h4 className="font-semibold text-claro mb-2">Consulta Gratuita</h4>
               <p className="text-gray-400 text-sm mb-3">
                 Agende sua consulta gratuita hoje mesmo.
               </p>
@@ -150,7 +150,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-destaque/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
@@ -164,7 +164,7 @@ const Footer = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-gray-400 hover:text-accent transition-colors"
+                  className="text-sm text-gray-400 hover:text-destaque transition-colors"
                 >
                   {link.name}
                 </Link>

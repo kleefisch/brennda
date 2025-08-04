@@ -1,47 +1,58 @@
 @import "tailwindcss";
 
-/* Variáveis de cores profissionais para advocacia */
+/* Variáveis de cores conforme diretrizes da advocacia */
 :root {
-  --background: 255 255 255;
-  --foreground: 30 30 30;
-  --primary: 16 24 64;
-  --primary-foreground: 255 255 255;
-  --secondary: 248 250 252;
-  --secondary-foreground: 30 30 30;
-  --accent: 181 144 55;
-  --accent-foreground: 255 255 255;
-  --muted: 241 245 249;
-  --muted-foreground: 100 116 139;
+  /* Cores de Background */
+  --background-principal: #1E2E45;
+  --background-secundario: #E8E9E1;
+  
+  /* Cores de Texto */
+  --texto-primario: #1E2E45;
+  --texto-secundario: #3A3A38;
+  --texto-destaque: #9A9162;
+  --texto-claro: #FFFFFF;
+
+  /* Mapeamento para componentes Shadcn UI */
+  --background: 232 233 225; /* E8E9E1 em RGB */
+  --foreground: 30 46 69; /* 1E2E45 em RGB */
+  --primary: 30 46 69; /* 1E2E45 */
+  --primary-foreground: 255 255 255; /* FFFFFF */
+  --secondary: 232 233 225; /* E8E9E1 */
+  --secondary-foreground: 30 46 69; /* 1E2E45 */
+  --accent: 154 145 98; /* 9A9162 */
+  --accent-foreground: 255 255 255; /* FFFFFF */
+  --muted: 232 233 225; /* E8E9E1 */
+  --muted-foreground: 58 58 56; /* 3A3A38 */
   --card: 255 255 255;
-  --card-foreground: 30 30 30;
+  --card-foreground: 30 46 69;
   --popover: 255 255 255;
-  --popover-foreground: 30 30 30;
-  --border: 226 232 240;
-  --input: 226 232 240;
-  --ring: 16 24 64;
+  --popover-foreground: 30 46 69;
+  --border: 200 200 195;
+  --input: 200 200 195;
+  --ring: 30 46 69;
   --destructive: 220 38 38;
   --destructive-foreground: 255 255 255;
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: 16 24 64;
-  --foreground: 248 250 252;
-  --primary: 181 144 55;
-  --primary-foreground: 16 24 64;
-  --secondary: 30 41 59;
-  --secondary-foreground: 248 250 252;
-  --accent: 181 144 55;
-  --accent-foreground: 16 24 64;
-  --muted: 30 41 59;
-  --muted-foreground: 148 163 184;
-  --card: 30 41 59;
-  --card-foreground: 248 250 252;
-  --popover: 30 41 59;
-  --popover-foreground: 248 250 252;
-  --border: 51 65 85;
-  --input: 51 65 85;
-  --ring: 181 144 55;
+  --background: 30 46 69; /* 1E2E45 */
+  --foreground: 255 255 255; /* FFFFFF */
+  --primary: 154 145 98; /* 9A9162 */
+  --primary-foreground: 30 46 69; /* 1E2E45 */
+  --secondary: 58 58 56; /* 3A3A38 */
+  --secondary-foreground: 255 255 255; /* FFFFFF */
+  --accent: 154 145 98; /* 9A9162 */
+  --accent-foreground: 30 46 69; /* 1E2E45 */
+  --muted: 58 58 56; /* 3A3A38 */
+  --muted-foreground: 200 200 195;
+  --card: 30 46 69;
+  --card-foreground: 255 255 255;
+  --popover: 30 46 69;
+  --popover-foreground: 255 255 255;
+  --border: 58 58 56;
+  --input: 58 58 56;
+  --ring: 154 145 98;
 }
 
 /* Base styles */
@@ -52,6 +63,31 @@
 body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
+}
+
+/* Classes utilitárias para as cores específicas */
+.bg-principal {
+  background-color: var(--background-principal);
+}
+
+.bg-secundario {
+  background-color: var(--background-secundario);
+}
+
+.text-principal {
+  color: var(--texto-primario);
+}
+
+.text-secundario {
+  color: var(--texto-secundario);
+}
+
+.text-destaque {
+  color: var(--texto-destaque);
+}
+
+.text-claro {
+  color: var(--texto-claro);
 }
 
 /* Smooth scrolling */

@@ -6,17 +6,17 @@ import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
 
 const HeroSection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50">
+    <section className="py-20 lg:py-32 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Conteúdo */}
           <div className="order-2 lg:order-1">
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl lg:text-6xl font-bold text-claro leading-tight mb-6">
               Defendendo seus{" "}
-              <span className="text-primary">direitos</span> com
-              <span className="text-accent"> excelência</span>
+              <span className="text-destaque">direitos</span> com
+              <span className="text-destaque"> excelência</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               Advocacia especializada com mais de 10 anos de experiência em
               Direito de Família, Civil, Contratos e Direito do Consumidor. 
               Atendimento personalizado e soluções jurídicas eficazes.
@@ -24,13 +24,13 @@ const HeroSection = () => {
             
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" asChild className="group">
+              <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/80 text-principal">
                 <Link href="/contato">
                   Consulta Gratuita
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="border-destaque text-destaque hover:bg-destaque hover:text-principal">
                 <Link href="/areas-de-atuacao">
                   Áreas de Atuação
                 </Link>
@@ -39,11 +39,11 @@ const HeroSection = () => {
 
             {/* Contato Rápido */}
             <div className="flex flex-col sm:flex-row gap-4 text-sm">
-              <div className="flex items-center gap-2 text-gray-600">
+              <div className="flex items-center gap-2 text-gray-300">
                 <Phone className="h-4 w-4" />
                 <span>(11) 99999-9999</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600">
+              <div className="flex items-center gap-2 text-gray-300">
                 <MessageCircle className="h-4 w-4" />
                 <span>WhatsApp 24h</span>
               </div>
@@ -53,7 +53,7 @@ const HeroSection = () => {
           {/* Imagem */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-destaque/20 to-claro/10 rounded-full blur-3xl"></div>
               <Image
                 src={LAWYER_PLACEHOLDERS.portrait}
                 alt="Dra. Brennda - Advogada especializada"

@@ -47,14 +47,14 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             O que nossos clientes dizem
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             A satisfação dos nossos clientes é nossa maior conquista. 
             Veja alguns depoimentos de quem confiou em nosso trabalho.
           </p>
@@ -65,11 +65,11 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              className="bg-claro p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Quote Icon */}
               <div className="mb-4">
-                <Quote className="h-8 w-8 text-primary/20" />
+                <Quote className="h-8 w-8 text-destaque/20" />
               </div>
 
               {/* Rating */}
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="border-t border-gray-100 pt-4">
-                <div className="font-semibold text-gray-900">
+                <div className="font-semibold text-principal">
                   {testimonial.name}
                 </div>
                 <div className="text-sm text-gray-500">
@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
                   {testimonial.company && (
                     <>
                       <br />
-                      <span className="text-primary">{testimonial.company}</span>
+                      <span className="text-destaque">{testimonial.company}</span>
                     </>
                   )}
                 </div>

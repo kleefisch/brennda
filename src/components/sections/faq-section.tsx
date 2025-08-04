@@ -50,14 +50,14 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-claro mb-4">
             Perguntas Frequentes
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Esclarecemos as principais dúvidas sobre nossos serviços jurídicos. 
             Se sua pergunta não estiver aqui, entre em contato conosco.
           </p>
@@ -70,14 +70,14 @@ const FAQSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-gray-50 rounded-lg px-6 border-none"
+                className="bg-principal/60 backdrop-blur-sm rounded-lg px-6 border border-destaque/20"
               >
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="font-semibold text-gray-900 pr-4">
+                  <span className="font-semibold text-claro pr-4">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="pb-6 text-gray-600 leading-relaxed">
+                <AccordionContent className="pb-6 text-gray-300 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
