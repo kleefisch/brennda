@@ -106,16 +106,16 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-principal backdrop-blur-sm border-b border-gray-600">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center">
-              <span className="text-white font-bold text-base">BS</span>
+          <Link href="/" className="flex items-center space-x-2 min-w-0">
+            <div className="w-8 sm:w-10 h-8 sm:h-10 bg-[#9A9162] rounded-md flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-sm sm:text-base">BS</span>
             </div>
-            <div className="flex items-center">
-              <span className="text-xl font-semibold tracking-wider text-claro">BRENNDA SILVA</span>
-              <span className="text-destaque mx-2">|</span>
-              <span className="text-xl font-light tracking-wider text-gray-300">ADVOCACIA</span>
+            <div className="flex flex-col sm:flex-row sm:items-center min-w-0">
+              <span className="text-sm sm:text-lg lg:text-xl font-semibold tracking-wide text-claro truncate">BRENNDA SILVA</span>
+              <span className="text-destaque mx-0 sm:mx-2 hidden sm:inline">|</span>
+              <span className="text-xs sm:text-base lg:text-xl font-light tracking-wide text-gray-300 truncate">ADVOCACIA</span>
             </div>
           </Link>
 

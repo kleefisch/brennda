@@ -98,28 +98,28 @@ const ContactForm = () => {
   ];
 
   return (
-    <section className="py-20 bg-secundario">
+    <section className="py-16 lg:py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Informações de Contato */}
-          <div>
-            <h3 className="text-2xl font-bold text-principal mb-8">
+          <div className="order-2 lg:order-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-principal mb-6 lg:mb-8 text-center lg:text-left">
               Informações para Contato
             </h3>
             
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-destaque/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="h-6 w-6 text-destaque" />
+                  <div key={index} className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-destaque/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="h-5 sm:h-6 w-5 sm:w-6 text-destaque" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-principal mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-principal mb-1 text-sm sm:text-base">
                         {info.title}
                       </h4>
-                      <div className="text-gray-700 whitespace-pre-line mb-3">
+                      <div className="text-gray-700 whitespace-pre-line mb-3 text-sm sm:text-base break-words">
                         {info.link && !info.isWhatsApp ? (
                           <a 
                             href={info.link}
@@ -134,14 +134,15 @@ const ContactForm = () => {
                         )}
                       </div>
                       {info.isWhatsApp && (
-                        <Button asChild className="bg-green-600 hover:bg-green-700 text-white border-0 px-4 py-2 text-sm font-semibold">
+                        <Button asChild className="bg-green-600 hover:bg-green-700 text-white border-0 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold w-full sm:w-auto">
                           <a 
                             href={info.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="flex items-center justify-center sm:justify-start"
                           >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-2 inline-block" width={14} height={14} />
+                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-2 inline-block" width={12} height={12} />
                             Falar no WhatsApp
                           </a>
                         </Button>
@@ -154,8 +155,8 @@ const ContactForm = () => {
           </div>
 
           {/* Formulário */}
-          <div className="bg-claro p-8 rounded-xl shadow-sm">
-            <h3 className="text-2xl font-bold text-principal mb-6">
+          <div className="bg-claro p-6 sm:p-8 rounded-xl shadow-sm order-1 lg:order-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-principal mb-6 text-center lg:text-left">
               Envie sua Mensagem
             </h3>
 
@@ -234,18 +235,18 @@ const ContactForm = () => {
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full bg-principal hover:bg-principal/90 text-claro border-0 px-8 py-4 text-lg font-semibold"
+                className="w-full bg-principal hover:bg-principal/90 text-claro border-0 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Enviando...
+                    <span className="text-sm sm:text-base">Enviando...</span>
                   </>
                 ) : (
                   <>
                     <Send className="h-4 w-4 mr-2" />
-                    Enviar Mensagem
+                    <span className="text-sm sm:text-base">Enviar Mensagem</span>
                   </>
                 )}
               </Button>

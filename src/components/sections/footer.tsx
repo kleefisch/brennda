@@ -35,30 +35,30 @@ const Footer = () => {
   return (
     <footer className="bg-principal text-gray-300">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand & Contact */}
-          <div className="flex flex-col">
+          <div className="flex flex-col col-span-1 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-base">BS</span>
               </div>
-              <div className="flex items-center flex-nowrap whitespace-nowrap">
-                <span className="text-xl font-semibold tracking-wider text-claro">BRENNDA SILVA</span>
-                <span className="text-destaque mx-2">|</span>
-                <span className="text-xl font-light tracking-wider text-gray-300">ADVOCACIA</span>
+              <div className="flex flex-col sm:flex-row sm:items-center min-w-0">
+                <span className="text-lg sm:text-xl font-semibold tracking-wide text-claro truncate">BRENNDA SILVA</span>
+                <span className="text-destaque mx-0 sm:mx-2 hidden sm:inline">|</span>
+                <span className="text-lg sm:text-xl font-light tracking-wide text-gray-300 truncate">ADVOCACIA</span>
               </div>
             </Link>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
               Advocacia especializada com mais de 10 anos de experiência, 
               oferecendo soluções jurídicas personalizadas e eficazes.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-destaque flex-shrink-0" />
-                <span className="text-sm">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-4 w-4 text-destaque flex-shrink-0 mt-0.5" />
+                <span className="text-sm break-words">
                   Av. 136, 777, Setor Marista, Goiânia - GO
                 </span>
               </div>
@@ -66,9 +66,9 @@ const Footer = () => {
                 <Phone className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">(62) 98267-7272</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-destaque flex-shrink-0" />
-                <span className="text-sm">contato@brenndasilvaadv.com.br</span>
+              <div className="flex items-start space-x-3">
+                <Mail className="h-4 w-4 text-destaque flex-shrink-0 mt-0.5" />
+                <span className="text-sm break-all">contato@brenndasilvaadv.com.br</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-4 w-4 text-destaque flex-shrink-0" />
@@ -139,11 +139,11 @@ const Footer = () => {
 
             {/* CTA */}
             <div className="bg-principal/60 backdrop-blur-sm border border-destaque/20 p-4 rounded-lg">
-              <h4 className="font-semibold text-claro mb-2">Consulta Jurídica</h4>
+              <h4 className="font-semibold text-claro mb-2 text-sm sm:text-base">Consulta Jurídica</h4>
               <p className="text-gray-400 text-sm mb-3">
                 Agende sua consulta jurídica hoje mesmo.
               </p>
-              <WhatsappButton size="lg" iconSize={20} className="text-center py-2 px-4 rounded font-medium text-sm">
+              <WhatsappButton size="default" iconSize={16} className="w-full text-center py-2 px-4 rounded font-medium text-sm">
                 Agendar Agora
               </WhatsappButton>
             </div>
@@ -156,18 +156,18 @@ const Footer = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-400 text-center md:text-left">
               © {currentYear} Dra. Brennda Advocacia. Todos os direitos reservados.
             </div>
 
             {/* Legal Links & KleeLabs */}
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-              <div className="flex space-x-6">
+            <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-6">
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
                 {legalLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-destaque transition-colors"
+                    className="text-sm text-gray-400 hover:text-destaque transition-colors whitespace-nowrap"
                   >
                     {link.name}
                   </Link>
@@ -184,7 +184,7 @@ const Footer = () => {
                   className="flex items-center space-x-1 hover:text-white transition-colors group"
                 >
                   <Clover className="h-4 w-4 group-hover:text-green-400 transition-colors" />
-                  <span className="font-medium">
+                  <span className="font-medium whitespace-nowrap">
                     <span className="group-hover:text-green-400 transition-colors">Klee</span>
                     <span className="group-hover:text-white transition-colors">Labs</span>
                   </span>
@@ -195,7 +195,7 @@ const Footer = () => {
 
           {/* OAB Info */}
           <div className="mt-4 pt-4 border-t border-gray-800 text-center">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 px-2">
               Dra. Brennda Silva - OAB/SP 123.456 | 
               Este site está em conformidade com o Código de Ética da OAB
             </p>
