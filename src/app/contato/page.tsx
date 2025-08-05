@@ -2,6 +2,7 @@ import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import ContactForm from "@/components/sections/contact-form";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -27,17 +28,9 @@ export default function ContatoPage() {
                 Agende sua consulta gratuita e conte com orientação jurídica especializada.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-destaque hover:bg-destaque/90 text-claro">
-                  <a 
-                    href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta gratuita."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-5 h-5" width={20} height={20} loading="eager" />
-                    <span className="uppercase">FALAR NO WHATSAPP</span>
-                  </a>
-                </Button>
+                <WhatsappButton size="lg" className="bg-destaque hover:bg-destaque/90 text-claro">
+                  <span className="uppercase">FALAR NO WHATSAPP</span>
+                </WhatsappButton>
                 <Button size="lg" variant="outline" asChild className="border-claro text-claro hover:bg-claro hover:text-principal">
                   <Link 
                     href="#contato"

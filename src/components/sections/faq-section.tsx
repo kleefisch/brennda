@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
 const faqs = [
   {
@@ -105,17 +106,9 @@ const FAQSection = () => {
             Entre em contato conosco para uma consulta gratuita e personalizada.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
-              <a
-                href="https://wa.me/5511999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
-                <span className="uppercase">Fale agora com a advogada</span>
-              </a>
-            </Button>
+            <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold min-w-0">
+              <span className="uppercase">Fale agora com a advogada</span>
+            </WhatsappButton>
           </div>
         </div>
       </div>

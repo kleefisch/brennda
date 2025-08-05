@@ -130,7 +130,7 @@ const macroAreas = [
 
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
-import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -286,12 +286,11 @@ export default function AreasDeAtuacao() {
                 <p className="text-base text-claro/90 mb-4">
                   Fale agora com a Dra. Brennda Silva e tire todas as suas dúvidas
                 </p>
-                <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
-                  <Link href="/contato" className="flex items-center gap-2">
-                    <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
-                    <span className="uppercase">Fale com a Advogada</span>
-                  </Link>
-                </Button>
+                <div className="flex justify-center">
+                  <WhatsappButton size="lg" className="px-4 py-6 text-lg font-semibold uppercase">
+                    Fale com a Advogada
+                  </WhatsappButton>
+                </div>
               </div>
             </div>
           </div>

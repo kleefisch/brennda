@@ -12,6 +12,7 @@ import {
   Send 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -75,7 +76,7 @@ const ContactForm = () => {
       icon: MessageCircle,
       title: "WhatsApp e Telefone",
       content: "(11) 99999-9999\nAtendimento 24 horas",
-      link: "https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta.",
+      link: "https://wa.me/5562982677272?text=Olá, Dra. Brennda!\n\nPreciso de suporte jurídico. Você poderia me auxiliar?",
       isWhatsApp: true
     },
     {

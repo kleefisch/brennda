@@ -1,6 +1,7 @@
-import Header from "@/components/sections/header";
+﻿import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import Link from "next/link";
 import {
   Handshake,
@@ -40,12 +41,9 @@ export default function RenegociacaoDividasPage() {
                 Soluções jurídicas para negociar dívidas, revisar contratos e buscar acordos justos com credores.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-destaque hover:bg-destaque/90 text-claro">
-                  <Link href="/contato" className="flex items-center gap-2">
-                    <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-5 h-5" width={20} height={20} loading="eager" />
-                    <span className="uppercase">INICIAR ATENDIMENTO</span>
-                  </Link>
-                </Button>
+                <WhatsappButton size="lg" className="bg-destaque hover:bg-destaque/90 text-claro">
+                  <span className="uppercase">INICIAR ATENDIMENTO</span>
+                </WhatsappButton>
                 <Button size="lg" variant="outline" asChild className="border-claro text-claro hover:bg-claro hover:text-principal">
                   <Link 
                     href="#como-funciona"
@@ -310,15 +308,9 @@ export default function RenegociacaoDividasPage() {
                     </div>
                   </div>
                   <div className="mt-6">
-                    <Button asChild className="w-full bg-principal hover:bg-principal/90 text-claro text-base">
-                      <Link 
-                        href="/contato" 
-                        className="flex items-center justify-center gap-2 text-claro text-base transition-colors duration-200 hover:bg-[#29406a] hover:text-claro focus-visible:ring-2 focus-visible:ring-destaque focus:outline-none"
-                      >
-                        <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-5 h-5" width={20} height={20} loading="eager" />
-                        Iniciar Atendimento
-                      </Link>
-                    </Button>
+                    <WhatsappButton className="w-full bg-principal hover:bg-principal/90 text-claro text-base">
+                      Iniciar Atendimento
+                    </WhatsappButton>
                   </div>
                 </div>
               </div>
@@ -337,12 +329,9 @@ export default function RenegociacaoDividasPage() {
                 Conte com orientação especializada para negociar, revisar contratos e buscar acordos vantajosos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-destaque hover:bg-destaque/90 text-claro">
-                  <Link href="/contato" className="flex items-center gap-2">
-                    <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-6 h-6" width={24} height={24} loading="eager" />
-                    <span className="uppercase">INICIAR ATENDIMENTO</span>
-                  </Link>
-                </Button>
+                <WhatsappButton size="lg" className="bg-destaque hover:bg-destaque/90 text-claro">
+                  <span className="uppercase">INICIAR ATENDIMENTO</span>
+                </WhatsappButton>
                 <Button size="lg" asChild className="bg-principal hover:bg-principal/90 text-claro">
                   <Link href="/areas-de-atuacao">
                     Ver Outros Serviços
@@ -357,3 +346,4 @@ export default function RenegociacaoDividasPage() {
     </>
   );
 }
+

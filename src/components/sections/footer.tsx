@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Scale, MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
-import WhatsAppLogo from "@/components/icons/whatsapp-logo";
+import { Scale, MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Clover } from "lucide-react";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,20 +59,20 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-destaque flex-shrink-0" />
                 <span className="text-sm">
-                  Rua da Consolação, 1234 - Centro, SP
+                  Av. 136, 777, Setor Marista, Goiânia - GO
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-destaque flex-shrink-0" />
-                <span className="text-sm">(11) 99999-9999</span>
+                <span className="text-sm">(62) 98267-7272</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-destaque flex-shrink-0" />
-                <span className="text-sm">contato@brennda-advocacia.com.br</span>
+                <span className="text-sm">contato@brenndasilvaadv.com.br</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-4 w-4 text-destaque flex-shrink-0" />
-                <span className="text-sm">Seg-Sex: 9h-18h | Sáb: 9h-13h</span>
+                <span className="text-sm">Seg-Sex: 9h-18h</span>
               </div>
             </div>
           </div>
@@ -139,16 +139,13 @@ const Footer = () => {
 
             {/* CTA */}
             <div className="bg-principal/60 backdrop-blur-sm border border-destaque/20 p-4 rounded-lg">
-              <h4 className="font-semibold text-claro mb-2">Consulta Gratuita</h4>
+              <h4 className="font-semibold text-claro mb-2">Consulta Jurídica</h4>
               <p className="text-gray-400 text-sm mb-3">
-                Agende sua consulta gratuita hoje mesmo.
+                Agende sua consulta jurídica hoje mesmo.
               </p>
-              <Link
-                href="/contato"
-                className="inline-block w-full text-center bg-destaque text-claro py-2 px-4 rounded font-medium hover:bg-destaque/90 transition-colors text-sm"
-              >
+              <WhatsappButton size="lg" iconSize={20} className="text-center py-2 px-4 rounded font-medium text-sm">
                 Agendar Agora
-              </Link>
+              </WhatsappButton>
             </div>
           </div>
         </div>
@@ -163,17 +160,36 @@ const Footer = () => {
               © {currentYear} Dra. Brennda Advocacia. Todos os direitos reservados.
             </div>
 
-            {/* Legal Links */}
-            <div className="flex space-x-6">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm text-gray-400 hover:text-destaque transition-colors"
+            {/* Legal Links & KleeLabs */}
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+              <div className="flex space-x-6">
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-destaque transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              
+              {/* KleeLabs Credit */}
+              <div className="flex items-center space-x-2 text-sm text-gray-500">
+                <span>Desenvolvido por</span>
+                <a
+                  href="https://kleelabs.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-1 hover:text-white transition-colors group"
                 >
-                  {link.name}
-                </Link>
-              ))}
+                  <Clover className="h-4 w-4 group-hover:text-green-400 transition-colors" />
+                  <span className="font-medium">
+                    <span className="group-hover:text-green-400 transition-colors">Klee</span>
+                    <span className="group-hover:text-white transition-colors">Labs</span>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
 

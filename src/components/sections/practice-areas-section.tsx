@@ -6,6 +6,7 @@ import {
   Home
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 // importação removida, usando SVG estático
 
 const practiceAreas = [
@@ -147,7 +148,7 @@ const PracticeAreasSection = () => {
                     </div>
                     
                     <Link
-                      href={area.href}
+                      href="/areas-de-atuacao"
                       className="mt-2 w-full bg-white/20 backdrop-blur-sm text-white text-center py-1 px-2 rounded-lg text-xs font-medium hover:bg-white/30 transition-colors flex-shrink-0"
                     >
                       Saiba Mais
@@ -164,12 +165,11 @@ const PracticeAreasSection = () => {
           <p className="text-gray-700 mb-6">
             Precisa de orientação jurídica em alguma dessas áreas?
           </p>
-          <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
-            <Link href="/contato" className="flex items-center gap-2">
-              <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
+          <div className="flex justify-center">
+            <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold">
               <span className="uppercase">Falar no WhatsApp</span>
-            </Link>
-          </Button>
+            </WhatsappButton>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { Award, Users, Clock, CheckCircle, MessageCircle } from "lucide-react";
 import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
 // importação removida, usando SVG estático
@@ -90,12 +91,9 @@ const AboutSection = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
-                <Link href="/contato" className="flex items-center gap-2">
-                  <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
-                  <span className="uppercase">Solicitar Atendimento Jurídico</span>
-                </Link>
-              </Button>
+              <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold min-w-0">
+                <span className="uppercase">Solicitar Atendimento Jurídico</span>
+              </WhatsappButton>
             </div>
           </div>
         </div>

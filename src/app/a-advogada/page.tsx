@@ -12,8 +12,10 @@ import {
   ArrowRight,
   Sparkles,
   HeartHandshake,
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 
@@ -102,12 +104,9 @@ const AboutPage = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" asChild className="bg-destaque hover:bg-destaque/90 text-claro border-0 px-8 py-4 text-lg font-semibold group">
-                    <Link href="/contato" className="flex items-center gap-3">
-                      <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-5 h-5" width={20} height={20} loading="eager" />
-                      <span className="uppercase">INICIAR ATENDIMENTO</span>
-                    </Link>
-                  </Button>
+                  <WhatsappButton size="lg" iconSize={20} className="px-8 py-4 text-lg font-semibold">
+                    <span className="uppercase">INICIAR ATENDIMENTO</span>
+                  </WhatsappButton>
                   <Button size="lg" variant="outline" asChild className="border-claro/30 text-claro hover:bg-claro/10 backdrop-blur-sm px-8 py-4 text-lg font-semibold">
                     <Link href="/areas-de-atuacao">
                       Áreas de Atuação
@@ -304,7 +303,7 @@ const AboutPage = () => {
                 {/* Card 2 */}
                 <div className="text-center bg-white rounded-2xl p-6 shadow-lg">
                   <div className="bg-destaque/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 border border-destaque/50 shadow-md">
-                    <Target className="w-8 h-8 text-destaque" />
+                    <FileText className="w-8 h-8 text-destaque" />
                   </div>
                   <h3 className="text-xl font-bold text-principal mb-3">Plano Jurídico</h3>
                   <p className="text-principal">Estratégia personalizada, explicada de forma simples e transparente.</p>
@@ -376,12 +375,9 @@ const AboutPage = () => {
                 Tire suas dúvidas ou agende uma consulta agora mesmo.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button size="lg" asChild className="bg-destaque hover:bg-destaque/90 text-principal border-0 px-10 py-5 text-xl font-bold group">
-                  <Link href="/contato" className="flex items-center gap-3">
-                    <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-6 h-6" width={24} height={24} loading="eager" />
-                    <span className="uppercase text-white">CONSULTAR ADVOGADA</span>
-                  </Link>
-                </Button>
+                <WhatsappButton size="lg" iconSize={24} className="px-10 py-5 text-xl font-bold">
+                  <span className="uppercase text-white">CONSULTAR ADVOGADA</span>
+                </WhatsappButton>
                 <Button size="lg" variant="outline" asChild className="border-principal/30 text-principal hover:bg-principal/10 px-10 py-5 text-xl font-semibold">
                   <Link href="/areas-de-atuacao" className="bg-principal text-claro hover:bg-principal/90 border-0 px-10 py-5 rounded-2xl transition-colors font-semibold">
                     Conheça as Especialidades

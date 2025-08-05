@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Scale, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -190,18 +191,9 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <Button asChild className="bg-destaque hover:bg-destaque/90 text-claro border-0">
-              <Link href="/contato">
-                <Image
-                  src="/icons/icon-whatsapp.svg"
-                  alt="WhatsApp"
-                  width={24}
-                  height={24}
-                  className=""
-                />
-                AGENDAR ATENDIMENTO
-              </Link>
-            </Button>
+            <WhatsappButton size="lg" iconSize={24}>
+              AGENDAR ATENDIMENTO
+            </WhatsappButton>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -261,18 +253,9 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <Button asChild className="mx-2 mt-2 bg-destaque hover:bg-destaque/90 text-claro font-semibold border-0">
-                <Link href="/contato" onClick={() => setIsMenuOpen(false)}>
-                  <Image
-                    src="/icons/icon-whatsapp.svg"
-                    alt="WhatsApp"
-                    width={24}
-                    height={24}
-                    className=""
-                  />
-                  AGENDAR ATENDIMENTO
-                </Link>
-              </Button>
+              <WhatsappButton size="lg" iconSize={24} className="mx-2 mt-2 font-semibold" onClick={() => setIsMenuOpen(false)}>
+                AGENDAR ATENDIMENTO
+              </WhatsappButton>
             </div>
           </nav>
         )}

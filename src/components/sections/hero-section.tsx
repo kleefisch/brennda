@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { ArrowRight, Phone, Clock } from "lucide-react";
 // importação removida, usando SVG estático
 import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
@@ -23,19 +24,16 @@ const HeroSection = () => {
             
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" asChild className="group bg-destaque hover:bg-destaque/90 text-claro border-0 px-4 py-6 text-lg font-semibold min-w-0">
-                <Link href="/contato" className="flex items-center gap-2">
-                  <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="w-7 h-7" width={28} height={28} loading="eager" />
-                  <span className="uppercase">Fale com a Advogada</span>
-                </Link>
-              </Button>
+              <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold min-w-0">
+                <span className="uppercase">Fale com a Advogada</span>
+              </WhatsappButton>
             </div>
 
             {/* Contato Rápido */}
             <div className="flex flex-col sm:flex-row gap-4 text-sm">
               <div className="flex items-center gap-2 text-gray-300">
                 <Phone className="h-4 w-4" />
-                <span>(11) 99999-9999</span>
+                <span>(62) 98267-7272</span>
               </div>
               <div className="flex items-center gap-2 text-gray-300">
                 <Clock className="h-4 w-4" />
