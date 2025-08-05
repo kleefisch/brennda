@@ -165,7 +165,7 @@ export default function ArticleSearch({ onResults }: ArticleSearchProps) {
             <span className="text-sm text-gray-600">Filtros ativos:</span>
             {searchTerm && (
               <span className="px-3 py-1 bg-destaque/10 text-destaque rounded-full text-sm">
-                "{searchTerm}"
+                &ldquo;{searchTerm}&rdquo;
               </span>
             )}
             {selectedCategory !== "Todos" && (

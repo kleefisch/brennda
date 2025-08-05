@@ -9,7 +9,7 @@ interface LikeButtonProps {
   articleId: string;
 }
 
-export function LikeButton({ initialLikes, articleId }: LikeButtonProps) {
+export function LikeButton({ initialLikes }: LikeButtonProps) {
   const [likes, setLikes] = useState(initialLikes);
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

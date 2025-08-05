@@ -132,7 +132,6 @@ import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { useState } from "react";
-import Link from "next/link";
 import {
   CheckCircle,
   Handshake,
@@ -141,13 +140,11 @@ import {
   FileText,
   Home,
   KeyRound,
-  Briefcase,
   Gavel,
   UserCheck,
   ShieldCheck,
   FileCheck2,
   Banknote,
-  HeartHandshake,
   ShoppingCart,
   PhoneCall,
   Plane,
@@ -158,9 +155,6 @@ import {
   MessageCircle,
   FileSearch,
   Building2,
-  UserCog,
-  Users2,
-  FileLock2
 } from "lucide-react";
 // Função utilitária para retornar o ícone conforme o serviço
 function getServiceIcon(title: string) {

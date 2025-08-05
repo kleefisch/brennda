@@ -1,10 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
-import { ArrowRight, Phone, Clock } from "lucide-react";
+import { Phone, Clock } from "lucide-react";
 // importação removida, usando SVG estático
-import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
 
 const HeroSection = () => {
   return (

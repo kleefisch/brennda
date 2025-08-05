@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
-import { Award, Users, Clock, CheckCircle, MessageCircle } from "lucide-react";
-import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
+import { Award, Users, Clock, CheckCircle } from "lucide-react";
 // importação removida, usando SVG estático
 
 const AboutSection = () => {

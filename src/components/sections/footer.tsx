@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Scale, MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Clover } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Clover } from "lucide-react";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
 const Footer = () => {

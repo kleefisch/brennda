@@ -9,7 +9,6 @@ import {
   Target,
   Award,
   Quote,
-  ArrowRight,
   Sparkles,
   HeartHandshake,
   FileText,
@@ -26,34 +25,6 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = () => {
-  const processSteps = [
-    {
-      number: "01",
-      title: "Avaliação do Caso",
-      description: "Entendemos sua situação com acolhimento e clareza. Primeiro contato sem compromisso, onde você é ouvido(a) com respeito e orientado(a) com simplicidade."
-    },
-    {
-      number: "02", 
-      title: "Plano Jurídico Claro",
-      description: "Traçamos a melhor estratégia para o seu caso. Com base nos seus objetivos, definimos o caminho: acordo, ação ou medida urgente."
-    },
-    {
-      number: "03",
-      title: "Execução Completa", 
-      description: "Cuidamos de toda a parte técnica. Documentos, contratos, petições, prazos — tudo tratado com precisão e agilidade."
-    },
-    {
-      number: "04",
-      title: "Acompanhamento Transparente",
-      description: "Você sabe de tudo, sempre. Atualizações constantes e explicações sem juridiquês. Comunicação clara do início ao fim."
-    },
-    {
-      number: "05",
-      title: "Conclusão Segura",
-      description: "Fechamos com responsabilidade e orientamos os próximos passos. Entregamos soluções reais e segurança jurídica para o que vem depois."
-    }
-  ];
-
   const pillars = [
     {
       icon: Shield,
@@ -188,7 +159,7 @@ const AboutPage = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-destaque mt-1 flex-shrink-0" />
-                      <span><strong>Gestão em Segurança Pública</strong> pela Faculdade Sul D'América</span>
+                      <span><strong>Gestão em Segurança Pública</strong> pela Faculdade Sul D&apos;América</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-destaque mt-1 flex-shrink-0" />
@@ -220,8 +191,8 @@ const AboutPage = () => {
               <div className="relative bg-principal/5 rounded-2xl p-8 lg:p-12 border border-principal/10">
                 <Quote className="absolute top-6 left-6 w-8 h-8 text-destaque/30" />
                 <blockquote className="text-2xl lg:text-3xl font-light text-principal text-center italic leading-relaxed">
-                  "Cada cliente é único. Cada caso é uma oportunidade de aplicar a lei com 
-                  inteligência, empatia e firmeza."
+                  &ldquo;Cada cliente é único. Cada caso é uma oportunidade de aplicar a lei com 
+                  inteligência, empatia e firmeza.&rdquo;
                 </blockquote>
                 <div className="w-16 h-1 bg-destaque mx-auto mt-8"></div>
               </div>

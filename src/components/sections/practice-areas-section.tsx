@@ -5,7 +5,6 @@ import {
   ShieldCheck,
   Home
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 // importação removida, usando SVG estático
 

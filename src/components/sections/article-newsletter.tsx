@@ -55,7 +55,7 @@ export default function ArticleNewsletter({
         setMessage('');
       }, 5000);
       
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage('Erro ao processar sua inscrição. Tente novamente.');
       

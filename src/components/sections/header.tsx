@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Scale, ChevronDown } from "lucide-react";
-import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { Button } from "@/components/ui/button";
 
@@ -253,7 +252,7 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <WhatsappButton size="lg" iconSize={24} className="mx-2 mt-2 font-semibold" onClick={() => setIsMenuOpen(false)}>
+              <WhatsappButton size="lg" iconSize={24} className="mx-2 mt-2 font-semibold">
                 AGENDAR ATENDIMENTO
               </WhatsappButton>
             </div>
