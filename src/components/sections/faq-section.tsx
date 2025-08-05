@@ -1,55 +1,47 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+"use client";
+
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
-    question: "Como posso agendar uma consulta?",
-    answer: "Você pode agendar uma consulta através do nosso formulário de contato, WhatsApp ou ligando diretamente para o escritório. Oferecemos também consultas online por videoconferência para sua comodidade."
+    question: "Como iniciar um processo de divórcio?",
+    answer: "Para dar entrada no divórcio, é preciso definir se ele será consensual (amigável) ou litigioso (quando há conflito). O consensual pode ser feito em cartório se não houver filhos menores, enquanto o litigioso sempre corre na justiça. A presença de uma advogada é obrigatória em todos os casos para garantir que seus direitos na partilha de bens e questões relacionadas aos filhos sejam respeitados, buscando a solução mais rápida e justa."
   },
   {
-    question: "Qual o valor da consulta inicial?",
-    answer: "A primeira consulta é gratuita e tem duração de até 30 minutos. Neste encontro, analisamos seu caso, esclarecemos suas dúvidas e apresentamos as possíveis estratégias jurídicas."
+    question: "Como é definida a pensão alimentícia para os filhos? É possível revisar o valor ou solicitar o fim da pensão?",
+    answer: "A pensão é calculada com base no equilíbrio entre a necessidade financeira do filho e a possibilidade de quem paga. Sim, o valor pode ser revisto judicialmente a qualquer momento através de uma ação revisional, caso haja mudança na situação financeira de uma das partes. O fim da pensão também exige uma ação judicial para comprovar que o filho não precisa mais do auxílio. Uma advogada é essencial para conduzir esses processos e garantir um resultado justo."
   },
   {
-    question: "Em quais áreas do direito vocês atuam?",
-    answer: "Atuamos principalmente em Direito de Família e Sucessões, Direito Civil, Contratos e Direito do Consumidor. Também oferecemos serviços de mediação e arbitragem para resolução de conflitos."
+    question: "Comprei um produto ou contratei um serviço e tive problemas. Quais são meus direitos como consumidor e como devo proceder?",
+    answer: "O Código de Defesa do Consumidor assegura o direito ao conserto, à troca do produto ou à devolução do dinheiro se o problema não for resolvido no prazo legal. Se o contato com a empresa não surtir efeito, o próximo passo é a via judicial. Uma advogada é crucial para formalizar a reclamação e buscar, além da solução do problema, uma possível indenização por danos morais."
   },
   {
-    question: "Como funciona o pagamento dos honorários?",
-    answer: "Os honorários são definidos de acordo com a complexidade do caso. Oferecemos diferentes modalidades de pagamento: valor fixo, percentual sobre o resultado ou pagamento parcelado. Tudo é transparente e acordado previamente."
+    question: "Fui negativado indevidamente ou meu nome está no SPC/Serasa sem que eu saiba a causa. O que fazer?",
+    answer: "A negativação indevida por uma dívida desconhecida ou já paga é ilegal e gera o direito a uma indenização por dano moral. O primeiro passo é buscar a empresa credora para esclarecimentos, mas a ação mais eficaz é a judicial. Uma advogada pode conseguir uma liminar para retirar seu nome dos cadastros de proteção ao crédito rapidamente e garantir sua compensação pelo transtorno."
   },
   {
-    question: "Vocês atendem em outras cidades?",
-    answer: "Nosso escritório está localizado em São Paulo, mas atendemos clientes de todo o Brasil através de consultas online e, quando necessário, nos deslocamos para outras cidades para audiências e reuniões importantes."
+    question: "Comprei um imóvel na planta e me arrependi. Posso desistir?",
+    answer: "Sim, é possível desistir da compra de um imóvel na planta através do distrato. No entanto, a construtora tem o direito de reter uma parte do valor pago como multa. A lei impõe limites a essa retenção para evitar cobranças abusivas. A assessoria de uma advogada é vital para negociar a devolução do maior percentual possível do valor investido, protegendo seus direitos."
   },
   {
-    question: "Quanto tempo demora para resolver um processo?",
-    answer: "O tempo varia conforme a complexidade do caso e a área do direito envolvida. Processos administrativos podem levar alguns meses, enquanto ações judiciais podem durar de 1 a 3 anos. Sempre mantemos nossos clientes informados sobre o andamento."
+    question: "Um parente faleceu. Como funciona a partilha da herança?",
+    answer: "A partilha é realizada através do inventário, que formaliza a transferência dos bens aos herdeiros e pode ser feito na justiça ou em cartório (se todos forem maiores e concordes). A presença de uma advogada é obrigatória em todos os casos para garantir que seus direitos na partilha de bens e questões relacionadas aos filhos sejam respeitados, buscando a solução mais rápida e justa."
   },
   {
-    question: "Posso acompanhar meu processo online?",
-    answer: "Sim! Mantemos nossos clientes sempre informados através de atualizações por e-mail, WhatsApp e acesso ao sistema de acompanhamento processual. Você receberá relatórios regulares sobre o andamento do seu caso."
-  },
-  {
-    question: "Vocês oferecem acordo extrajudicial?",
-    answer: "Sempre que possível, buscamos resolver conflitos através de mediação e acordos extrajudiciais, que são mais rápidos, econômicos e preservam o relacionamento entre as partes. Temos alta taxa de sucesso nessas negociações."
-  },
-  {
-    question: "Qual a diferença entre mediação e processo judicial?",
-    answer: "A mediação é um processo mais rápido, econômico e colaborativo, onde as partes chegam a um acordo com auxílio de um mediador neutro. O processo judicial é mais formal, demorado e pode gerar um resultado imposto pelo juiz."
-  },
-  {
-    question: "Como posso saber se meu caso tem chances de sucesso?",
-    answer: "Durante a consulta inicial, analisamos detalhadamente seu caso, a documentação disponível e o cenário jurídico. Com base em nossa experiência, fornecemos uma avaliação realista das chances de sucesso e das estratégias mais adequadas."
+    question: "Sofri um dano material ou moral por ação de outra pessoa. Tenho direito a indenização?",
+    answer: "Sim, o Código Civil determina que quem causa dano a outra pessoa tem o dever de indenizá-la. Essa reparação abrange tanto os danos materiais (prejuízos financeiros) quanto os danos morais (sofrimento, ofensa à honra). Para garantir esse direito, é preciso comprovar a culpa, o dano e a relação entre eles. Uma advogada é fundamental para analisar o caso, reunir as provas e buscar na justiça a reparação integral dos prejuízos."
   }
 ];
 
 const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="py-20 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,26 +56,44 @@ const FAQSection = () => {
           </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-white rounded-lg px-6 border border-gray-200 hover:shadow-sm transition-shadow"
+        {/* FAQ Custom Design */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <div 
+              key={index}
+              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors group"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-6 hover:text-destaque transition-colors">
-                  <span className="font-semibold text-destaque pr-4">
-                    {faq.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                <h3 className="font-semibold text-principal pr-4 group-hover:text-destaque transition-colors">
+                  {faq.question}
+                </h3>
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-destaque/10 flex items-center justify-center group-hover:bg-destaque/20 transition-colors">
+                  <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
+                    {openIndex === index ? (
+                      <Minus className="h-4 w-4 text-destaque" />
+                    ) : (
+                      <Plus className="h-4 w-4 text-destaque" />
+                    )}
+                  </div>
+                </div>
+              </button>
+              
+              <div 
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-5 border-t border-gray-100">
+                  <div className="pt-4 text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}

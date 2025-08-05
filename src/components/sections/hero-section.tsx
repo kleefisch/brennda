@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, Phone, Clock } from "lucide-react";
 // importação removida, usando SVG estático
 import { LAWYER_PLACEHOLDERS } from "@/lib/placeholders";
 
 const HeroSection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-principal">
+    <section className="py-12 lg:py-20 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Conteúdo */}
@@ -38,7 +38,7 @@ const HeroSection = () => {
                 <span>(11) 99999-9999</span>
               </div>
               <div className="flex items-center gap-2 text-gray-300">
-                <MessageCircle className="h-4 w-4" />
+                <Clock className="h-4 w-4" />
                 <span>WhatsApp 24h</span>
               </div>
             </div>

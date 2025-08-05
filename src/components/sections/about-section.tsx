@@ -47,19 +47,19 @@ const AboutSection = () => {
 
           {/* Conteúdo */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-claro mb-6">
-              Conheça a <span className="text-destaque">Dra. Brennda</span>
+            <h2 className="text-lg lg:text-xl font-semibold text-destaque mb-2">
+              Conheça a Dra. Brennda
             </h2>
+            <h1 className="text-4xl lg:text-5xl font-bold text-claro leading-tight mb-6">
+              Inteligência jurídica
+              <br />
+              <span className="text-destaque">com olhar humano</span>
+            </h1>
             <p className="text-lg text-gray-300 mb-6">
-              Formada em Direito pela Universidade de São Paulo (USP), com especialização 
-              em Direito de Família e Sucessões. Pós-graduada em Direito Civil e 
-              Processual Civil, atua há mais de 10 anos defendendo os direitos de 
-              pessoas físicas e jurídicas.
+              Dra. Brennda Silva é uma advogada que alia técnica, empatia e visão estratégica para transformar conflitos em soluções reais. Com uma abordagem moderna e acessível, atua de forma próxima, clara e eficaz — sempre com foco no que realmente importa: proteger direitos, construir confiança e gerar resultados.
             </p>
             <p className="text-lg text-gray-300 mb-4">
-              Minha missão é oferecer um atendimento humanizado e personalizado, 
-              sempre buscando as melhores soluções jurídicas para cada caso, 
-              com ética, transparência e dedicação integral aos meus clientes.
+              Sua atuação se destaca pela condução firme, análise minuciosa e comprometimento absoluto com cada cliente. Com posicionamento claro e tomada de decisão segura, oferece não apenas orientação jurídica — mas direção, respaldo e soluções que fazem a diferença.
             </p>
             
             <Link href="/a-advogada" className="text-destaque hover:text-destaque/80 font-bold mb-8 inline-block">

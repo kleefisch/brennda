@@ -2,17 +2,31 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Scale, ChevronDown, MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, Scale, ChevronDown } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  // Função para verificar se estamos em uma página de serviços
+  const isServicesPage = pathname.startsWith('/servicos');
+  
+  // Função para verificar qual categoria está ativa
+  const getActiveCategory = () => {
+    if (pathname.includes('/servicos/familia')) return 'Família';
+    if (pathname.includes('/servicos/consumidor')) return 'Consumidor';
+    if (pathname.includes('/servicos/civil')) return 'Civil';
+    if (pathname.includes('/servicos/imobiliario')) return 'Imobiliário';
+    return null;
+  };
+
+  const activeCategory = getActiveCategory();
 
   const navigation = [
     { name: "Início", href: "/" },
@@ -22,10 +36,67 @@ const Header = () => {
       name: "Serviços",
       href: "#",
       submenu: [
-        { name: "Família e Sucessões", href: "/servicos/familia-e-sucessoes" },
-        { name: "Direito Civil", href: "/servicos/direito-civil" },
-        { name: "Contratos", href: "/servicos/contratos" },
-        { name: "Direito do Consumidor", href: "/servicos/direito-do-consumidor" },
+        {
+          category: "Família",
+          href: "/areas-de-atuacao",
+          items: [
+            { name: "Divórcio", href: "/servicos/familia/divorcio" },
+            { name: "Pensão Alimentícia", href: "/servicos/familia/pensao-alimenticia" },
+            { name: "Guarda de Filhos", href: "/servicos/familia/guarda-de-filhos" },
+            { name: "Inventário e Herança", href: "/servicos/familia/inventario-e-heranca" },
+            { name: "Testamento", href: "/servicos/familia/testamento" },
+            { name: "Planejamento Sucessório", href: "/servicos/familia/planejamento-sucessorio" },
+            { name: "Interdição, Tutela e Curatela", href: "/servicos/familia/interdicao-tutela-curatela" },
+            { name: "Pacto Antenupcial e Contratos", href: "/servicos/familia/pacto-antenupcial-contratos" },
+            { name: "Reconhecimento de Paternidade", href: "/servicos/familia/reconhecimento-de-paternidade" },
+          ]
+        },
+        {
+          category: "Consumidor",
+          href: "/areas-de-atuacao",
+          items: [
+            { name: "Cobranças Indevidas", href: "/servicos/consumidor/cobrancas-indevidas" },
+            { name: "Danos Morais e Materiais", href: "/servicos/consumidor/danos-morais-materiais" },
+            { name: "Telefonia, Internet e TV", href: "/servicos/consumidor/telefonia-internet-tv" },
+            { name: "Vício de Produto", href: "/servicos/consumidor/vicio-de-produto" },
+            { name: "Direito de Arrependimento", href: "/servicos/consumidor/direito-de-arrependimento" },
+            { name: "Renegociação de Dívidas", href: "/servicos/consumidor/renegociacao-dividas" },
+            { name: "Publicidade Enganosa", href: "/servicos/consumidor/publicidade-enganosa" },
+            { name: "Turismo e Transporte", href: "/servicos/consumidor/turismo-transporte" },
+            { name: "Garantia Legal e Trocas", href: "/servicos/consumidor/garantia-legal-trocas" },
+            { name: "Ação Revisional de Juros", href: "/servicos/consumidor/acao-revisional-juros" },
+            { name: "Planos de Saúde e Seguros", href: "/servicos/consumidor/planos-saude-seguros" },
+          ]
+        },
+        {
+          category: "Civil",
+          href: "/areas-de-atuacao",
+          items: [
+            { name: "Elaboração e Revisão de Contratos", href: "/servicos/civil/elaboracao-revisao-contratos" },
+            { name: "Consultoria e Pareceres Jurídicos", href: "/servicos/civil/consultoria-pareceres-juridicos" },
+            { name: "Ações Indenizatórias", href: "/servicos/civil/acoes-indenizatorias" },
+            { name: "Responsabilidade Civil", href: "/servicos/civil/responsabilidade-civil" },
+            { name: "Assessoria em Sinistros", href: "/servicos/civil/assessoria-sinistros" },
+            { name: "Cobrança e Execução de Dívidas", href: "/servicos/civil/cobranca-execucao-dividas" },
+            { name: "Mediação e Arbitragem", href: "/servicos/civil/mediacao-arbitragem" },
+          ]
+        },
+        {
+          category: "Imobiliário",
+          href: "/areas-de-atuacao",
+          items: [
+            { name: "Ações Possessórias", href: "/servicos/imobiliario/acoes-possessorias" },
+            { name: "Compra e Venda de Imóveis", href: "/servicos/imobiliario/compra-venda-imoveis" },
+            { name: "Locação de Imóveis", href: "/servicos/imobiliario/locacao-imoveis" },
+            { name: "Regularização de Imóveis", href: "/servicos/imobiliario/regularizacao-imoveis" },
+            { name: "Questões Condominiais", href: "/servicos/imobiliario/questoes-condominiais" },
+            { name: "Usucapião", href: "/servicos/imobiliario/usucapiao" },
+            { name: "Ações de Despejo", href: "/servicos/imobiliario/acoes-despejo" },
+            { name: "Contencioso Imobiliário", href: "/servicos/imobiliario/contencioso-imobiliario" },
+            { name: "Assessoria em Loteamentos", href: "/servicos/imobiliario/assessoria-loteamentos" },
+            { name: "Assessoria em Leilões", href: "/servicos/imobiliario/assessoria-leiloes" },
+          ]
+        }
       ],
     },
     { name: "Artigos", href: "/artigos" },
@@ -38,39 +109,81 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Scale className="h-8 w-8 text-destaque" />
-            <span className="font-bold text-xl text-claro">
-              Dra. Brennda
-            </span>
+            <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center">
+              <span className="text-white font-bold text-base">BS</span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-xl font-semibold tracking-wider text-claro">BRENNDA SILVA</span>
+              <span className="text-destaque mx-2">|</span>
+              <span className="text-xl font-light tracking-wider text-gray-300">ADVOCACIA</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <div key={item.name}>
+              <div key={item.name} className="relative">
                 {item.submenu ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center space-x-1 text-claro hover:text-destaque transition-colors">
+                  <div 
+                    className="relative group"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <button className={`nav-link flex items-center space-x-1 transition-all duration-300 ${isServicesPage || isServicesOpen ? 'text-destaque active' : 'text-claro'}`}>
                       <span>{item.name}</span>
                       <ChevronDown className="h-4 w-4" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-56">
-                      {item.submenu.map((subItem) => (
-                        <DropdownMenuItem key={subItem.name} asChild>
+                    </button>
+                    
+                    {/* Dropdown Menu Principal */}
+                    <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                      {item.submenu.map((category) => (
+                        <div 
+                          key={category.category} 
+                          className="relative group/category"
+                          onMouseEnter={() => setHoveredCategory(category.category)}
+                          onMouseLeave={() => {
+                            setHoveredCategory(null);
+                            setHoveredService(null);
+                          }}
+                        >
                           <Link
-                            href={subItem.href}
-                            className="w-full cursor-pointer"
+                            href={category.href}
+                            className={`flex items-center justify-between px-4 py-3 text-sm transition-colors duration-200 border-b border-gray-100 last:border-b-0 ${
+                              activeCategory === category.category || hoveredCategory === category.category
+                                ? 'bg-secundario text-destaque font-bold' 
+                                : 'text-principal hover:bg-secundario hover:text-destaque'
+                            }`}
                           >
-                            {subItem.name}
+                            <span>Direito {category.category === 'Consumidor' ? 'do' : category.category === 'Civil' ? '' : category.category === 'Imobiliário' ? '' : 'de'} {category.category}</span>
+                            <ChevronDown className="h-4 w-4 -rotate-90" />
                           </Link>
-                        </DropdownMenuItem>
+                          
+                          {/* Submenu Lateral */}
+                          <div className={`absolute left-full top-0 ml-1 w-72 bg-white rounded-md shadow-lg border border-gray-200 py-2 transition-all duration-200 ${hoveredCategory === category.category ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible -translate-x-2'}`}>
+                            {category.items.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className={`block px-4 py-2 text-sm transition-colors duration-200 ${
+                                  pathname === subItem.href || hoveredService === subItem.href
+                                    ? 'bg-secundario text-destaque font-bold' 
+                                    : 'text-principal hover:bg-secundario hover:text-destaque'
+                                }`}
+                                onMouseEnter={() => setHoveredService(subItem.href)}
+                                onMouseLeave={() => setHoveredService(null)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                    </div>
+                  </div>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-claro hover:text-destaque transition-colors"
+                    className="nav-link text-claro transition-all duration-300"
                   >
                     {item.name}
                   </Link>
@@ -79,8 +192,14 @@ const Header = () => {
             ))}
             <Button asChild className="bg-destaque hover:bg-destaque/90 text-claro border-0">
               <Link href="/contato">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                Agendar Atendimento
+                <Image
+                  src="/icons/icon-whatsapp.svg"
+                  alt="WhatsApp"
+                  width={24}
+                  height={24}
+                  className=""
+                />
+                AGENDAR ATENDIMENTO
               </Link>
             </Button>
           </nav>
@@ -112,15 +231,22 @@ const Header = () => {
                         {item.name}
                       </span>
                       <div className="ml-4 space-y-2">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="text-gray-200 hover:text-destaque transition-colors block px-2 py-1"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
+                        {item.submenu.map((category) => (
+                          <div key={category.category}>
+                            <div className="text-xs font-bold text-destaque uppercase tracking-wider px-2 py-1">
+                              {category.category}
+                            </div>
+                            {category.items.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="text-gray-200 hover:text-destaque transition-colors block px-4 py-1 text-sm"
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -137,8 +263,14 @@ const Header = () => {
               ))}
               <Button asChild className="mx-2 mt-2 bg-destaque hover:bg-destaque/90 text-claro font-semibold border-0">
                 <Link href="/contato" onClick={() => setIsMenuOpen(false)}>
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Agendar Atendimento
+                  <Image
+                    src="/icons/icon-whatsapp.svg"
+                    alt="WhatsApp"
+                    width={24}
+                    height={24}
+                    className=""
+                  />
+                  AGENDAR ATENDIMENTO
                 </Link>
               </Button>
             </div>

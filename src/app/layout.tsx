@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   keywords: ["advocacia", "direito de família", "direito civil", "contratos", "direito do consumidor", "advogada", "são paulo"],
   authors: [{ name: "Dra. Brennda" }],
   creator: "Dra. Brennda",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-16x16.svg",
+        sizes: "16x16",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",

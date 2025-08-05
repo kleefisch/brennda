@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { 
   MapPin, 
-  Phone, 
   Mail, 
   Clock, 
   MessageCircle, 
@@ -19,12 +18,13 @@ import { Textarea } from "@/components/ui/textarea";
 import WhatsAppLogo from "@/components/icons/whatsapp-logo";const contactSchema = z.object({
   name: z.string()
     .min(2, "Nome deve ter pelo menos 2 caracteres")
-    .max(100, "Nome deve ter no máximo 100 caracteres"),
+    .max(50, "Nome deve ter no máximo 50 caracteres"),
   email: z.string()
     .email("Por favor, insira um e-mail válido"),
-  subject: z.string()
-    .min(5, "Assunto deve ter pelo menos 5 caracteres")
-    .max(150, "Assunto deve ter no máximo 150 caracteres"),
+  phone: z.string()
+    .min(10, "Telefone deve ter pelo menos 10 dígitos")
+    .max(15, "Telefone deve ter no máximo 15 dígitos")
+    .regex(/^[\d\s\(\)\-\+]+$/, "Telefone deve conter apenas números e símbolos válidos"),
   message: z.string()
     .min(10, "Mensagem deve ter pelo menos 10 caracteres")
     .max(1000, "Mensagem deve ter no máximo 1000 caracteres"),
@@ -70,27 +70,28 @@ const ContactSection = () => {
 
   const contactInfo = [
     {
+      icon: MessageCircle,
+      title: "WhatsApp e Telefone",
+      content: "(11) 99999-9999\nAtendimento 24 horas",
+      link: "https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta.",
+      isWhatsApp: true
+    },
+    {
       icon: MapPin,
       title: "Endereço",
       content: "Rua da Consolação, 1234 - Sala 567\nCentro, São Paulo - SP\nCEP: 01302-000",
       link: "https://maps.google.com/?q=Rua+da+Consolação+1234+São+Paulo"
     },
     {
-      icon: Phone,
-      title: "Telefone",
-      content: "(11) 3333-4444\n(11) 99999-9999",
-      link: "tel:+551133334444"
-    },
-    {
       icon: Mail,
       title: "E-mail",
-      content: "contato@brennda-advocacia.com.br\ndra.brennda@adv.oab.br",
+      content: "contato@brennda-advocacia.com.br",
       link: "mailto:contato@brennda-advocacia.com.br"
     },
     {
       icon: Clock,
       title: "Horário de Atendimento",
-      content: "Segunda a Sexta: 9h às 18h\nSábado: 9h às 13h\nWhatsApp: 24 horas",
+      content: "Segunda a Sexta: 8h às 18h\nWhatsApp: 24 horas",
       link: null
     }
   ];
@@ -124,12 +125,12 @@ const ContactSection = () => {
                     <div className="w-12 h-12 bg-destaque/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <IconComponent className="h-6 w-6 text-destaque" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="font-semibold text-principal mb-1">
                         {info.title}
                       </h4>
-                      <div className="text-gray-700 whitespace-pre-line">
-                        {info.link ? (
+                      <div className="text-gray-700 whitespace-pre-line mb-3">
+                        {info.link && !info.isWhatsApp ? (
                           <a 
                             href={info.link}
                             className="hover:text-destaque transition-colors"
@@ -142,33 +143,22 @@ const ContactSection = () => {
                           info.content
                         )}
                       </div>
+                      {info.isWhatsApp && (
+                        <Button asChild className="bg-green-600 hover:bg-green-700 text-white border-0 px-4 py-2 text-sm font-semibold">
+                          <a 
+                            href={info.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <WhatsAppLogo className="mr-2" size={14} />
+                            Falar no WhatsApp
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 );
               })}
-            </div>
-
-            {/* WhatsApp CTA */}
-            <div className="mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
-              <div className="flex items-center space-x-3 mb-3">
-                <WhatsAppLogo className="text-green-600" size={24} />
-                <h4 className="font-semibold text-green-900">
-                  Atendimento WhatsApp 24h
-                </h4>
-              </div>
-              <p className="text-green-700 mb-4">
-                Para urgências ou dúvidas rápidas, fale conosco pelo WhatsApp.
-              </p>
-              <Button asChild className="bg-green-600 hover:bg-green-700 text-white border-0 px-6 py-3 text-base font-semibold">
-                <a 
-                  href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <WhatsAppLogo className="mr-2" size={16} />
-                  Falar no WhatsApp
-                </a>
-              </Button>
             </div>
           </div>
 
@@ -196,11 +186,11 @@ const ContactSection = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="text-principal font-medium">Nome Completo*</Label>
+                <Label htmlFor="name" className="text-principal font-medium">Nome*</Label>
                 <Input
                   id="name"
                   {...register('name')}
-                  placeholder="Seu nome completo"
+                  placeholder="Seu nome"
                   className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
                 {errors.name && (
@@ -223,15 +213,16 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <Label htmlFor="subject" className="text-principal font-medium">Assunto*</Label>
+                <Label htmlFor="phone" className="text-principal font-medium">Telefone*</Label>
                 <Input
-                  id="subject"
-                  {...register('subject')}
-                  placeholder="Assunto da sua consulta"
+                  id="phone"
+                  type="tel"
+                  {...register('phone')}
+                  placeholder="(11) 99999-9999"
                   className="mt-1 border-gray-300 focus:border-destaque focus:ring-destaque"
                 />
-                {errors.subject && (
-                  <p className="text-red-600 text-sm mt-1">{errors.subject.message}</p>
+                {errors.phone && (
+                  <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>
                 )}
               </div>
 

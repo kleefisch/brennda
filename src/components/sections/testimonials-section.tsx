@@ -2,45 +2,45 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Maria Santos",
-    role: "Empresária",
-    company: "Santos & Associados",
-    content: "A Dra. Brennda conduziu meu processo de divórcio com muita competência e sensibilidade. Sempre me manteve informada sobre cada etapa e conseguiu um resultado muito favorável. Recomendo sem hesitação!",
-    rating: 5
-  },
-  {
-    name: "João Silva",
-    role: "Engenheiro",
-    company: "Construtora Silva",
-    content: "Excelente profissional! Me ajudou em uma questão contratual complexa e resolveu tudo de forma rápida e eficiente. O atendimento é impecável e os honorários justos.",
-    rating: 5
-  },
-  {
-    name: "Ana Costa",
-    role: "Médica",
-    company: "Clínica Costa",
-    content: "Precisei de ajuda com direito do consumidor e a Dra. Brennda foi fundamental para resolver meu problema. Muito profissional, dedicada e sempre disponível para esclarecer dúvidas.",
-    rating: 5
-  },
-  {
-    name: "Carlos Oliveira",
-    role: "Aposentado",
+    name: "M. S. Oliveira",
+    role: "Dona de Casa",
     company: "",
-    content: "A doutora me auxiliou em um processo de inventário muito complicado. Sua experiência e conhecimento fizeram toda a diferença. Conseguimos resolver tudo de forma tranquila e rápida.",
+    content: "Enfrentei um divórcio muito complicado após 15 anos de casada. A Dra. Brennda foi incansável na defesa dos meus direitos e dos meus filhos. Sua firmeza fez toda a diferença. Hoje tenho um acordo justo e sou eternamente grata.",
     rating: 5
   },
   {
-    name: "Lucia Ferreira",
+    name: "R. C. Martins",
+    role: "Médica",
+    company: "",
+    content: "Comprei meu apartamento e após alguns meses começaram a aparecer infiltrações e problemas elétricos graves. A construtora se negava a resolver. A Dra. Brennda foi firme e conseguiu todos os reparos mais indenização.",
+    rating: 5
+  },
+  {
+    name: "J. Mendes",
+    role: "Cabeleireira",
+    company: "",
+    content: "Estava com problemas na pensão alimentícia do meu filho há meses. A Dra. Brennda conduziu todo o processo com muita competência e sensibilidade com um resultado justo.",
+    rating: 5
+  },
+  {
+    name: "L. A. Costa",
+    role: "Aposentada",
+    company: "",
+    content: "Descobri um empréstimo fraudulento em meu nome e estavam descontando da minha aposentadoria. A Dra. Brennda reverteu tudo e tive todos os valores devolvidos. Muito obrigada por tudo!",
+    rating: 5
+  },
+  {
+    name: "C. M. Silva",
+    role: "Professora",
+    company: "",
+    content: "Meu plano de saúde negava constantemente meu tratamento. A Dra. Brennda lutou com determinação e conseguiu não só a autorização como também indenização pelos transtornos. Profissional que realmente se importa com o bem-estar dos clientes.",
+    rating: 5
+  },
+  {
+    name: "T. Almeida",
     role: "Comerciante",
-    company: "Loja Ferreira",
-    content: "Atendimento excepcional! A Dra. Brennda é muito atenciosa e explica tudo de forma clara. Me ajudou em uma questão trabalhista e o resultado foi excelente.",
-    rating: 5
-  },
-  {
-    name: "Roberto Mendes",
-    role: "Professor",
-    company: "Colégio Mendes",
-    content: "Profissional extremamente competente e ética. Me representou em um caso de direito civil e sua dedicação foi impressionante. Recomendo a todos que precisam de um advogado de confiança.",
+    company: "",
+    content: "Enfrentei uma disputa familiar complexa por herança que se arrastava há anos. A Dra. Brennda trouxe clareza ao processo e conseguiu um acordo justo para todos os herdeiros. Sua competência e sensibilidade foram essenciais para resolver essa situação delicada.",
     rating: 5
   }
 ];
@@ -117,7 +117,7 @@ const TestimonialsSection = () => {
                 <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
               ))}
             </div>
-            <span>4.9/5 estrelas baseado em 50+ avaliações</span>
+            <span>4.9/5 estrelas baseado em 80+ avaliações</span>
           </div>
         </div>
       </div>

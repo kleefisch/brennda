@@ -1,66 +1,85 @@
 import Link from "next/link";
 import { 
-  Heart, 
+  Users, 
   FileText, 
-  Handshake, 
   ShieldCheck,
-  Users,
-  Home,
-  Briefcase,
-  Scale,
-  MessageCircle
+  Home
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // importação removida, usando SVG estático
 
 const practiceAreas = [
   {
-    icon: Heart,
+    icon: Users,
     title: "Direito de Família",
-    description: "Divórcio, união estável, guarda de filhos, pensão alimentícia e adoção.",
+    description: "Divórcio, união estável, guarda de filhos, pensão alimentícia e questões familiares.",
+    detailedServices: [
+      "Divórcio e Separação",
+      "União Estável", 
+      "Guarda de Filhos",
+      "Pensão Alimentícia",
+      "Adoção",
+      "Inventário e Partilha",
+      "Reconhecimento de Paternidade",
+      "Alienação Parental",
+      "Regulamentação de Visitas",
+      "Planejamento Sucessório"
+    ],
     href: "/servicos/familia-e-sucessoes"
-  },
-  {
-    icon: FileText,
-    title: "Direito Civil",
-    description: "Indenizações, responsabilidade civil, direitos reais e obrigações.",
-    href: "/servicos/direito-civil"
-  },
-  {
-    icon: Handshake,
-    title: "Contratos",
-    description: "Elaboração, revisão e assessoria em contratos empresariais e pessoais.",
-    href: "/servicos/contratos"
   },
   {
     icon: ShieldCheck,
     title: "Direito do Consumidor",
     description: "Defesa dos direitos do consumidor e resolução de conflitos comerciais.",
+    detailedServices: [
+      "Indenizações",
+      "Cancelamentos",
+      "Vícios de Produtos",
+      "Serviços Defeituosos",
+      "Contratos Abusivos",
+      "Cobrança Indevida",
+      "Negativação Irregular",
+      "Problemas Bancários",
+      "Planos de Saúde",
+      "Compras Online"
+    ],
     href: "/servicos/direito-do-consumidor"
   },
   {
-    icon: Users,
-    title: "Sucessões",
-    description: "Inventário, testamento, planejamento sucessório e partilha de bens.",
-    href: "/servicos/familia-e-sucessoes"
+    icon: FileText,
+    title: "Direito Civil",
+    description: "Indenizações, responsabilidade civil, direitos reais e obrigações contratuais.",
+    detailedServices: [
+      "Danos Morais",
+      "Danos Materiais",
+      "Responsabilidade Civil",
+      "Direitos Reais",
+      "Contratos",
+      "Sucessões",
+      "Direito das Obrigações",
+      "Direitos da Personalidade",
+      "Posse e Propriedade",
+      "Indenizações Diversas"
+    ],
+    href: "/servicos/direito-civil"
   },
   {
     icon: Home,
     title: "Direito Imobiliário",
     description: "Compra e venda, locação, regularização e questões condominiais.",
+    detailedServices: [
+      "Compra e Venda",
+      "Contratos de Locação",
+      "Regularização Fundiária",
+      "Questões Condominiais",
+      "Usucapião",
+      "Financiamentos",
+      "Registro de Imóveis",
+      "Incorporação Imobiliária",
+      "Despejo e Cobrança",
+      "Revisão de Aluguel"
+    ],
     href: "/servicos/direito-civil"
-  },
-  {
-    icon: Briefcase,
-    title: "Direito Empresarial",
-    description: "Constituição de empresas, contratos comerciais e consultoria jurídica.",
-    href: "/servicos/contratos"
-  },
-  {
-    icon: Scale,
-    title: "Mediação e Arbitragem",
-    description: "Resolução alternativa de conflitos de forma eficiente e econômica.",
-    href: "/contato"
   }
 ];
 
@@ -84,23 +103,58 @@ const PracticeAreasSection = () => {
           {practiceAreas.map((area, index) => {
             const IconComponent = area.icon;
             return (
-              <Link
+              <div
                 key={index}
-                href={area.href}
-                className="group bg-claro p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+                className="group relative h-64 perspective-1000"
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-destaque/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-destaque/20 transition-colors">
-                    <IconComponent className="h-8 w-8 text-destaque group-hover:text-principal transition-colors" />
+                {/* Card Container with flip effect */}
+                <div className="relative w-full h-full transform-style-preserve-3d transition-transform duration-700 group-hover:rotate-y-180">
+                  
+                  {/* Front Face */}
+                  <Link
+                    href={area.href}
+                    className="absolute inset-0 w-full h-full backface-hidden bg-claro p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-100 flex flex-col items-center text-center justify-center"
+                  >
+                    <div className="w-16 h-16 bg-destaque/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-destaque/20 transition-colors">
+                      <IconComponent className="h-8 w-8 text-destaque" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-principal mb-2">
+                      {area.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {area.description}
+                    </p>
+                  </Link>
+
+                  {/* Back Face */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-destaque p-3 rounded-xl shadow-lg border border-destaque/20 flex flex-col">
+                    <div className="flex items-center justify-center mb-2">
+                      <IconComponent className="h-4 w-4 text-white mr-1" />
+                      <h3 className="text-sm font-semibold text-white">
+                        {area.title}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex-1 flex flex-col justify-center min-h-0">
+                      <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-white/90 text-sm">
+                        {area.detailedServices.map((service, serviceIndex) => (
+                          <div key={serviceIndex} className="flex items-center">
+                            <div className="w-1 h-1 bg-white/60 rounded-full mr-1.5 flex-shrink-0"></div>
+                            <span className="leading-tight">{service}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <Link
+                      href={area.href}
+                      className="mt-2 w-full bg-white/20 backdrop-blur-sm text-white text-center py-1 px-2 rounded-lg text-xs font-medium hover:bg-white/30 transition-colors flex-shrink-0"
+                    >
+                      Saiba Mais
+                    </Link>
                   </div>
-                  <h3 className="text-lg font-semibold text-principal mb-2 group-hover:text-destaque transition-colors">
-                    {area.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {area.description}
-                  </p>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

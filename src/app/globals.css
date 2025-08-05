@@ -118,3 +118,50 @@ html {
   outline: 2px solid rgb(var(--ring));
   outline-offset: 2px;
 }
+
+/* Efeito de hover animado para navegação */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #9A9162;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #9A9162 !important;
+}
+
+.nav-link.active {
+  color: #9A9162 !important;
+}
+
+/* Efeitos 3D para flip cards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

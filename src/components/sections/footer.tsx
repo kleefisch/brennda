@@ -36,14 +36,18 @@ const Footer = () => {
     <footer className="bg-principal text-gray-300">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
           {/* Brand & Contact */}
-          <div className="lg:col-span-1">
+          <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <Scale className="h-8 w-8 text-destaque" />
-              <span className="font-bold text-xl text-claro">
-                Dra. Brennda
-              </span>
+              <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center">
+                <span className="text-white font-bold text-base">BS</span>
+              </div>
+              <div className="flex items-center flex-nowrap whitespace-nowrap">
+                <span className="text-xl font-semibold tracking-wider text-claro">BRENNDA SILVA</span>
+                <span className="text-destaque mx-2">|</span>
+                <span className="text-xl font-light tracking-wider text-gray-300">ADVOCACIA</span>
+              </div>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Advocacia especializada com mais de 10 anos de experiência, 
@@ -74,7 +78,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col">
             <h3 className="font-semibold text-claro mb-6">Links Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -91,7 +95,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="flex flex-col">
             <h3 className="font-semibold text-claro mb-6">Serviços</h3>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -108,7 +112,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter & Social */}
-          <div>
+          <div className="flex flex-col">
             <h3 className="font-semibold text-claro mb-6">Conecte-se</h3>
             <p className="text-gray-400 text-sm mb-4">
               Siga-nos nas redes sociais para dicas jurídicas e novidades.
