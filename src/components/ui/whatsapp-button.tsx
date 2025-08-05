@@ -9,7 +9,7 @@ interface WhatsappButtonProps {
   iconSize?: number;
   phone?: string; // Ex: '5562982677272'
   message?: string; // Mensagem do WhatsApp
-  [key: string]: any;
+  // [key: string]: any; // Removido para evitar uso de 'any' explícito
 }
 
 

@@ -16,7 +16,6 @@ import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import WhatsAppLogo from "@/components/icons/whatsapp-logo";
 
 const contactSchema = z.object({
   name: z.string()
@@ -142,7 +141,8 @@ const ContactForm = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <WhatsAppLogo className="mr-2" size={14} />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-2 inline-block" width={14} height={14} />
                             Falar no WhatsApp
                           </a>
                         </Button>
