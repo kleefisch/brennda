@@ -102,7 +102,7 @@ const ContactForm = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Informações de Contato */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <h3 className="text-xl sm:text-2xl font-bold text-principal mb-6 lg:mb-8 text-center lg:text-left">
               Informações para Contato
             </h3>
@@ -155,7 +155,7 @@ const ContactForm = () => {
           </div>
 
           {/* Formulário */}
-          <div className="bg-claro p-6 sm:p-8 rounded-xl shadow-sm order-1 lg:order-2">
+          <div className="bg-claro p-6 sm:p-8 rounded-xl shadow-sm order-2 lg:order-2">
             <h3 className="text-xl sm:text-2xl font-bold text-principal mb-6 text-center lg:text-left">
               Envie sua Mensagem
             </h3>

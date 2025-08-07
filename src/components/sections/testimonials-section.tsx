@@ -85,8 +85,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   );
 }
 
-function CarouselTestimonials({ testimonials }: { testimonials: Testimonial[] }) {
-  const [current, setCurrent] = useState(0);
+function CarouselTestimonials({ testimonials, current, setCurrent, onSwipeInteraction }: { testimonials: Testimonial[], current: number, setCurrent: React.Dispatch<React.SetStateAction<number>>, onSwipeInteraction?: () => void }) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -119,6 +118,10 @@ function CarouselTestimonials({ testimonials }: { testimonials: Testimonial[] })
           // Swipe right
           setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
         }
+        // Chamar callback para mostrar setas após swipe
+        if (onSwipeInteraction) {
+          onSwipeInteraction();
+        }
       }
     }
     touchStartX.current = null;
@@ -127,56 +130,86 @@ function CarouselTestimonials({ testimonials }: { testimonials: Testimonial[] })
 
   return (
     <div className="relative w-full max-w-xl mx-auto">
-      {/* Setas */}
-      <button
-        aria-label="Anterior"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-destaque/70 hover:text-destaque transition-colors"
-        onClick={() => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-        style={{ background: "none" }}
-      >
-        <ChevronLeft className="h-7 w-7" />
-      </button>
-      <button
-        aria-label="Próximo"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-destaque/70 hover:text-destaque transition-colors"
-        onClick={() => setCurrent((prev) => (prev + 1) % testimonials.length)}
-        style={{ background: "none" }}
-      >
-        <ChevronRight className="h-7 w-7" />
-      </button>
-      {/* Card com transição */}
-      <div
-        className="overflow-hidden"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div className="transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)`, display: 'flex' }}>
-          {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="min-w-full">
-              <TestimonialCard testimonial={testimonial} />
-            </div>
-          ))}
+      <div className="relative flex items-center">
+        {/* Card com transição */}
+        <div
+          className="overflow-hidden w-full"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="transition-transform duration-500" style={{ transform: `translateX(-${current * 100}%)`, display: 'flex' }}>
+            {testimonials.map((testimonial, idx) => (
+              <div key={idx} className="min-w-full flex flex-col">
+                <TestimonialCard testimonial={testimonial} />
+                {/* Indicadores posicionados logo abaixo de cada card */}
+                <div className="flex justify-center mt-4 gap-2">
+                  {testimonials.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      className={`w-2 h-2 rounded-full transition-colors ${current === dotIdx ? 'bg-destaque' : 'bg-gray-300'}`}
+                      onClick={() => setCurrent(dotIdx)}
+                      aria-label={`Ir para depoimento ${dotIdx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      {/* Indicadores */}
-      <div className="flex justify-center mt-4 gap-2">
-        {testimonials.map((_, idx) => (
-          <button
-            key={idx}
-            className={`w-2 h-2 rounded-full ${current === idx ? 'bg-destaque' : 'bg-gray-300'}`}
-            onClick={() => setCurrent(idx)}
-            aria-label={`Ir para depoimento ${idx + 1}`}
-          />
-        ))}
       </div>
     </div>
   );
 }
 
 function TestimonialsSection() {
+  const [current, setCurrent] = useState(0);
+  const [showArrows, setShowArrows] = useState(false);
+  const [arrowsVisible, setArrowsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Observer para detectar quando a seção está visível
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowArrows(true);
+          // Mostrar setas por 3 segundos inicialmente
+          setTimeout(() => {
+            setArrowsVisible(false);
+          }, 3000);
+        } else {
+          setShowArrows(false);
+          setArrowsVisible(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Mostrar setas ao detectar a seção
+  useEffect(() => {
+    if (showArrows) {
+      setArrowsVisible(true);
+    }
+  }, [showArrows]);
+
+  // Função para mostrar setas temporariamente após interação
+  const handleSwipeInteraction = () => {
+    setArrowsVisible(true);
+    setTimeout(() => {
+      setArrowsVisible(false);
+    }, 2000);
+  };
+
   return (
-    <section className="py-20 bg-secundario">
+    <section ref={sectionRef} className="py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -192,8 +225,40 @@ function TestimonialsSection() {
         {/* Carrossel Mobile/Tablet, Grid Desktop */}
         <div className="relative">
           {/* Mobile/Tablet: Carrossel */}
-          <div className="block md:hidden">
-            <CarouselTestimonials testimonials={testimonials} />
+          <div className="block md:hidden relative">
+            {/* Setas com animação de fade e só aparecem quando necessário */}
+            <button
+              aria-label="Anterior"
+              className={`absolute -left-4 top-1/2 -translate-y-1/2 z-30 p-1 text-destaque/70 hover:text-destaque transition-all duration-500 ${
+                arrowsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+              }`}
+              onClick={() => {
+                setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+                handleSwipeInteraction();
+              }}
+              style={{ background: "none" }}
+            >
+              <ChevronLeft className="h-8 w-8" />
+            </button>
+            <button
+              aria-label="Próximo"
+              className={`absolute -right-4 top-1/2 -translate-y-1/2 z-30 p-1 text-destaque/70 hover:text-destaque transition-all duration-500 ${
+                arrowsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+              }`}
+              onClick={() => {
+                setCurrent((prev) => (prev + 1) % testimonials.length);
+                handleSwipeInteraction();
+              }}
+              style={{ background: "none" }}
+            >
+              <ChevronRight className="h-8 w-8" />
+            </button>
+            <CarouselTestimonials 
+              testimonials={testimonials} 
+              current={current} 
+              setCurrent={setCurrent} 
+              onSwipeInteraction={handleSwipeInteraction}
+            />
           </div>
           {/* Desktop: Grid */}
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">

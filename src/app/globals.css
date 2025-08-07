@@ -208,6 +208,13 @@ html {
 }
 
 /* Estilos para botões WhatsApp em telas muito pequenas */
+@media (max-width: 768px) {
+  /* Remove scroll horizontal apenas em mobile/tablet */
+  html, body {
+    overflow-x: hidden !important;
+  }
+}
+
 @media (max-width: 480px) {
   /* Botões WhatsApp responsivos para telas pequenas */
   button[class*="whatsapp"], 

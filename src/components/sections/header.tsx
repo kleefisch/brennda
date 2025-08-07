@@ -233,7 +233,7 @@ const Header = () => {
                       </button>
                       {/* Dropdown de Áreas (categorias) */}
                       {isServicesDropdownOpen && (
-                        <div id="servicos-dropdown" className="ml-2 mt-1 space-y-1">
+                        <div id="servicos-dropdown" className="ml-2 mt-1 space-y-1 max-h-64 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-destaque/40 scrollbar-track-transparent">
                           {item.submenu.map((category) => (
                             <div key={category.category}>
                               <button
@@ -247,7 +247,7 @@ const Header = () => {
                               </button>
                               {/* Dropdown de Serviços */}
                               {openCategory === category.category && (
-                                <div id={`servicos-categoria-${category.category}`} className="ml-4 mt-1 space-y-1">
+                                <div id={`servicos-categoria-${category.category}`} className="ml-4 mt-1 space-y-1 max-h-48 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-destaque/30 scrollbar-track-transparent">
                                   {category.items.map((subItem) => (
                                     <Link
                                       key={subItem.name}
