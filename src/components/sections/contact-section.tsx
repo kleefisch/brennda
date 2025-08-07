@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import WhatsAppLogo from "@/components/icons/whatsapp-logo";
 const contactSchema = z.object({
   name: z.string()
     .min(2, "Nome deve ter pelo menos 2 caracteres")
@@ -106,7 +105,7 @@ const ContactSection = () => {
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Pronto para defender seus direitos? Entre em contato conosco e 
-            agende sua consulta gratuita. Estamos aqui para ajudar você.
+            agende sua consulta personalizada. Estamos aqui para ajudar você.
           </p>
         </div>
 
@@ -150,8 +149,9 @@ const ContactSection = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <WhatsAppLogo className="mr-2" size={14} />
-                            Falar no WhatsApp
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-1 inline-block" width={28} height={28} />
+                            FALAR NO WHATSAPP
                           </a>
                         </Button>
                       )}

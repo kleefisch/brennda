@@ -102,7 +102,7 @@ const FAQSection = () => {
             Ainda tem dúvidas?
           </h3>
           <p className="text-gray-200 mb-4">
-            Entre em contato conosco para uma consulta gratuita e personalizada.
+            Entre em contato conosco para uma consulta personalizada.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold min-w-0">

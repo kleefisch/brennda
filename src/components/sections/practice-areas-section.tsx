@@ -25,7 +25,7 @@ const practiceAreas = [
       "Regulamentação de Visitas",
       "Planejamento Sucessório"
     ],
-    href: "/servicos/familia-e-sucessoes"
+    href: "/areas-de-atuacao#direito-de-familia"
   },
   {
     icon: ShieldCheck,
@@ -43,7 +43,7 @@ const practiceAreas = [
       "Planos de Saúde",
       "Compras Online"
     ],
-    href: "/servicos/direito-do-consumidor"
+    href: "/areas-de-atuacao#direito-do-consumidor"
   },
   {
     icon: FileText,
@@ -61,7 +61,7 @@ const practiceAreas = [
       "Posse e Propriedade",
       "Indenizações Diversas"
     ],
-    href: "/servicos/direito-civil"
+    href: "/areas-de-atuacao#direito-civil"
   },
   {
     icon: Home,
@@ -79,7 +79,7 @@ const practiceAreas = [
       "Despejo e Cobrança",
       "Revisão de Aluguel"
     ],
-    href: "/servicos/direito-civil"
+    href: "/areas-de-atuacao#direito-imobiliario"
   }
 ];
 
@@ -116,7 +116,7 @@ const PracticeAreasSection = () => {
                     className="absolute inset-0 w-full h-full backface-hidden bg-claro p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-lg border border-gray-100 flex flex-col items-center text-center justify-center"
                   >
                     <div className="w-12 sm:w-16 h-12 sm:h-16 bg-destaque/10 rounded-full flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-destaque/20 transition-colors flex-shrink-0">
-                      <IconComponent className="h-6 sm:h-8 w-6 sm:w-8 text-destaque" />
+                      <IconComponent className="h-8 sm:h-10 w-8 sm:w-10 text-destaque" />
                     </div>
                     <h3 className="text-base sm:text-lg font-semibold text-principal mb-2">
                       {area.title}
@@ -147,7 +147,7 @@ const PracticeAreasSection = () => {
                     </div>
                     
                     <Link
-                      href="/areas-de-atuacao"
+                      href={area.href}
                       className="mt-2 w-full bg-white/20 backdrop-blur-sm text-white text-center py-1 px-2 rounded-lg text-xs font-medium hover:bg-white/30 transition-colors flex-shrink-0"
                     >
                       Saiba Mais
@@ -165,7 +165,7 @@ const PracticeAreasSection = () => {
             Precisa de orientação jurídica em alguma dessas áreas?
           </p>
           <div className="flex justify-center">
-            <WhatsappButton size="lg" iconSize={20} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
+            <WhatsappButton size="lg" iconSize={28} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
               <span className="uppercase">Falar no WhatsApp</span>
             </WhatsappButton>
           </div>

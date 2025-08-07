@@ -75,7 +75,7 @@ const AboutPage = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <WhatsappButton size="lg" iconSize={18} className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold">
+                  <WhatsappButton size="lg" iconSize={28} className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold">
                     <span className="uppercase">INICIAR ATENDIMENTO</span>
                   </WhatsappButton>
                   <Button size="lg" variant="outline" asChild className="border-claro/30 text-claro hover:bg-claro/10 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold">
@@ -362,7 +362,7 @@ const AboutPage = () => {
                 Tire suas dúvidas ou agende uma consulta agora mesmo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
-                <WhatsappButton size="lg" iconSize={20} className="px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold">
+                <WhatsappButton size="lg" iconSize={28} className="px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold">
                   <span className="uppercase text-white">CONSULTAR ADVOGADA</span>
                 </WhatsappButton>
                 <Button size="lg" variant="outline" asChild className="border-principal/30 text-principal hover:bg-principal/10 px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-semibold">

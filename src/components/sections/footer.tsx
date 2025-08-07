@@ -14,10 +14,10 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Direito de Família", href: "/servicos/familia-e-sucessoes" },
-    { name: "Direito Civil", href: "/servicos/direito-civil" },
-    { name: "Contratos", href: "/servicos/contratos" },
-    { name: "Direito do Consumidor", href: "/servicos/direito-do-consumidor" },
+    { name: "Direito de Família", href: "/areas-de-atuacao#direito-de-familia" },
+    { name: "Direito Civil", href: "/areas-de-atuacao#direito-civil" },
+    { name: "Direito do Consumidor", href: "/areas-de-atuacao#direito-do-consumidor" },
+    { name: "Direito Imobiliário", href: "/areas-de-atuacao#direito-imobiliario" },
   ];
 
   const legalLinks = [
@@ -36,10 +36,10 @@ const Footer = () => {
     <footer className="bg-principal text-gray-300">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12">
           {/* Brand & Contact */}
           <div className="flex flex-col col-span-1 sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-6">
+            <Link href="/" className="flex items-center space-x-2 mb-6 w-fit">
               <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-base">BS</span>
               </div>
@@ -49,7 +49,7 @@ const Footer = () => {
                 <span className="text-lg sm:text-xl font-light tracking-wide text-gray-300 truncate">ADVOCACIA</span>
               </div>
             </Link>
-            <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base max-w-[280px] lg:max-w-[320px]">
               Advocacia especializada com mais de 10 anos de experiência, 
               oferecendo soluções jurídicas personalizadas e eficazes.
             </p>
@@ -143,7 +143,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mb-3">
                 Agende sua consulta jurídica hoje mesmo.
               </p>
-              <WhatsappButton size="default" iconSize={16} className="w-full text-center py-2 px-4 rounded font-medium text-sm">
+              <WhatsappButton size="default" iconSize={28} className="w-full text-center py-2 px-4 rounded font-medium text-sm">
                 Agendar Agora
               </WhatsappButton>
             </div>

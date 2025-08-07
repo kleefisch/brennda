@@ -190,7 +190,7 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <WhatsappButton size="lg" iconSize={24}>
+            <WhatsappButton size="lg" iconSize={28}>
               AGENDAR ATENDIMENTO
             </WhatsappButton>
           </nav>
@@ -252,7 +252,7 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <WhatsappButton size="lg" iconSize={24} className="mx-2 mt-2 font-semibold">
+              <WhatsappButton size="lg" iconSize={28} className="mx-2 mt-2 font-semibold">
                 AGENDAR ATENDIMENTO
               </WhatsappButton>
             </div>

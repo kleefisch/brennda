@@ -117,7 +117,7 @@ const TestimonialsSection = () => {
                 <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
               ))}
             </div>
-            <span>4.9/5 estrelas baseado em 80+ avaliações</span>
+            <span>4.9/5 estrelas baseado em 50+ avaliações</span>
           </div>
         </div>
       </div>

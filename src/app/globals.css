@@ -108,6 +108,11 @@ body {
   color: var(--texto-claro) !important;
 }
 
+/* Hover states para texto */
+.hover\:text-destaque:hover {
+  color: var(--texto-destaque) !important;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -164,4 +169,15 @@ html {
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+/* Estilo da navegação hover no footer */
+.hover\:text-destaque:hover {
+  color: #9A9162;
+  transition: color 0.3s ease;
+}
+
+/* Scroll suave para navegação por âncoras */
+html {
+  scroll-behavior: smooth;
 }

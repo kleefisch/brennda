@@ -142,8 +142,8 @@ const ContactForm = () => {
                             className="flex items-center justify-center sm:justify-start"
                           >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-2 inline-block" width={12} height={12} />
-                            Falar no WhatsApp
+                            <img src="/icons/icon-whatsapp.svg" alt="WhatsApp" className="mr-1 inline-block" width={28} height={28} />
+                            FALAR NO WHATSAPP
                           </a>
                         </Button>
                       )}

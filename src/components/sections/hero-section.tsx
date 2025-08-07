@@ -21,7 +21,7 @@ const HeroSection = () => {
             
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <WhatsappButton size="lg" iconSize={20} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
+              <WhatsappButton size="lg" iconSize={28} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
                 <span className="uppercase">Fale com a Advogada</span>
               </WhatsappButton>
             </div>

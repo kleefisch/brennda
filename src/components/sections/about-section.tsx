@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
-import { Award, Users, Clock, CheckCircle } from "lucide-react";
+import { Award, Users, Clock, CheckCircle, IdCard } from "lucide-react";
 // importação removida, usando SVG estático
 
 const AboutSection = () => {
   const highlights = [
     {
-      icon: Award,
-      title: "10+ Anos de Experiência",
-      description: "Sólida experiência em diversas áreas do direito"
+      icon: IdCard,
+      title: "OAB/GO 71.841",
+      description: "Sólida experiência em Direito Civil"
     },
     {
-      icon: Users,
-      title: "500+ Clientes Atendidos",
-      description: "Casos resolvidos com sucesso e satisfação"
+      icon: Award,
+      title: "Formação de Excelência",
+      description: "Graduação em Direito e constante atualização profissional"
     },
     {
       icon: Clock,
@@ -23,8 +23,8 @@ const AboutSection = () => {
     },
     {
       icon: CheckCircle,
-      title: "95% de Aprovação",
-      description: "Alta taxa de sucesso nos casos defendidos"
+      title: "Compromisso com o Cliente",
+      description: "Dedicação total e ética em cada caso atendido"
     }
   ];
 
@@ -33,16 +33,18 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Imagem */}
-          <div className="relative order-2 lg:order-1">
-            <div className="absolute inset-0 bg-gradient-to-br from-destaque/10 to-claro/5 rounded-2xl transform rotate-3"></div>
-            <Image
-              src="/images/about-picture.jpg"
-              alt="Dra. Brennda no escritório de advocacia"
-              width={400}
-              height={500}
-              sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
-              className="relative rounded-2xl shadow-xl object-cover z-10 w-full h-auto max-w-sm mx-auto lg:max-w-none"
-            />
+          <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
+            <div className="relative max-w-sm sm:max-w-md lg:max-w-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-destaque/10 to-claro/5 rounded-2xl transform rotate-3"></div>
+              <Image
+                src="/images/about-picture.jpg"
+                alt="Dra. Brennda no escritório de advocacia"
+                width={400}
+                height={500}
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 550px"
+                className="relative rounded-2xl shadow-xl object-cover w-full max-w-lg lg:max-w-xl h-auto z-10"
+              />
+            </div>
           </div>
 
           {/* Conteúdo */}
@@ -62,8 +64,14 @@ const AboutSection = () => {
               Sua atuação se destaca pela condução firme, análise minuciosa e comprometimento absoluto com cada cliente. Com posicionamento claro e tomada de decisão segura, oferece não apenas orientação jurídica — mas direção, respaldo e soluções que fazem a diferença.
             </p>
             
-            <Link href="/a-advogada" className="text-destaque hover:text-destaque/80 font-bold mb-8 inline-block text-sm sm:text-base">
-              Conheça a trajetória &rarr;
+            <Link
+              href="/a-advogada"
+              className="text-destaque font-bold mb-8 inline-block text-sm sm:text-base transition-all group hover:text-destaque/80"
+            >
+              <span className="inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                Conheça a trajetória
+                <span className="inline-block transform transition-transform group-hover:translate-x-1 group-hover:scale-110">&rarr;</span>
+              </span>
             </Link>
 
             {/* Destaques */}
@@ -90,7 +98,7 @@ const AboutSection = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <WhatsappButton size="lg" iconSize={20} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
+              <WhatsappButton size="lg" iconSize={28} className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold">
                 <span className="uppercase">Solicitar Atendimento Jurídico</span>
               </WhatsappButton>
             </div>

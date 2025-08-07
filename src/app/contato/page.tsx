@@ -28,7 +28,7 @@ export default function ContatoPage() {
                 Agende sua consulta gratuita e conte com orientação jurídica especializada.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <WhatsappButton size="lg" className="bg-destaque hover:bg-destaque/90 text-claro">
+                <WhatsappButton size="lg" iconSize={28} className="bg-destaque hover:bg-destaque/90 text-claro">
                   <span className="uppercase">FALAR NO WHATSAPP</span>
                 </WhatsappButton>
                 <Button size="lg" variant="outline" asChild className="border-claro text-claro hover:bg-claro hover:text-principal">

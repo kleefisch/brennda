@@ -1,5 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { ChevronRight, Scale, Users, Home, CreditCard } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
 const macroAreas = [
   {
@@ -130,15 +134,10 @@ const macroAreas = [
 
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
-import { WhatsappButton } from "@/components/ui/whatsapp-button";
-import { useState } from "react";
 import {
   CheckCircle,
   Handshake,
-  Scale,
-  Users,
   FileText,
-  Home,
   KeyRound,
   Gavel,
   UserCheck,
@@ -222,6 +221,29 @@ function getServiceIcon(title: string) {
 
 export default function AreasDeAtuacao() {
   const [selected, setSelected] = useState("familia");
+  
+  useEffect(() => {
+    // Detecta se há uma âncora na URL e seleciona a área correspondente
+    const hash = window.location.hash.replace('#', '');
+    const areaMap: { [key: string]: string } = {
+      'direito-de-familia': 'familia',
+      'direito-civil': 'civil',
+      'direito-do-consumidor': 'consumidor',
+      'direito-imobiliario': 'imobiliario'
+    };
+    
+    if (hash && areaMap[hash]) {
+      setSelected(areaMap[hash]);
+      // Pequeno delay para garantir que o DOM foi renderizado
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+  
   const area = macroAreas.find((a) => a.key === selected)!;
 
   return (
@@ -250,6 +272,7 @@ export default function AreasDeAtuacao() {
                   <button
                     key={a.key}
                     onClick={() => setSelected(a.key)}
+                    id={`direito-${a.key === 'familia' ? 'de-familia' : a.key === 'consumidor' ? 'do-consumidor' : a.key === 'civil' ? 'civil' : 'imobiliario'}`}
                     className={`px-6 py-3 rounded-full font-semibold text-lg transition-colors border-2 focus:outline-none ${selected === a.key ? "bg-destaque text-claro border-destaque" : "bg-claro/10 text-principal border-claro/20 hover:bg-claro/20"}`}
                     aria-current={selected === a.key ? "page" : undefined}
                   >
@@ -281,7 +304,7 @@ export default function AreasDeAtuacao() {
                   Fale agora com a Dra. Brennda Silva e tire todas as suas dúvidas
                 </p>
                 <div className="flex justify-center">
-                  <WhatsappButton size="lg" className="px-4 py-6 text-lg font-semibold uppercase">
+                  <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold uppercase">
                     Fale com a Advogada
                   </WhatsappButton>
                 </div>
