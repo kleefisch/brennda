@@ -9,9 +9,11 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-  const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+  const [isServicesOpen, setIsServicesOpen] = useState(false); // desktop only
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null); // desktop only
+  const [hoveredService, setHoveredService] = useState<string | null>(null); // desktop only
   const pathname = usePathname();
 
   // Função para verificar se estamos em uma página de serviços
@@ -114,9 +116,9 @@ const Header = () => {
             <div className="w-8 sm:w-10 h-8 sm:h-10 bg-[#9A9162] rounded-md flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm sm:text-base">BS</span>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center min-w-0">
+            <div className="flex flex-row items-center min-w-0 whitespace-nowrap">
               <span className="text-sm sm:text-lg lg:text-xl font-semibold tracking-wide text-claro truncate">BRENNDA SILVA</span>
-              <span className="text-destaque mx-0 sm:mx-2 hidden sm:inline">|</span>
+              <span className="text-destaque mx-1">|</span>
               <span className="text-xs sm:text-base lg:text-xl font-light tracking-wide text-gray-300 truncate">ADVOCACIA</span>
             </div>
           </Link>
@@ -215,34 +217,54 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-destaque/30 bg-principal/95 backdrop-blur-sm">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               {navigation.map((item) => (
                 <div key={item.name}>
                   {item.submenu ? (
-                    <div>
-                      <span className="text-claro font-medium block px-2 py-2">
-                        {item.name}
-                      </span>
-                      <div className="ml-4 space-y-2">
-                        {item.submenu.map((category) => (
-                          <div key={category.category}>
-                            <div className="text-xs font-bold text-destaque uppercase tracking-wider px-2 py-1">
-                              {category.category}
-                            </div>
-                            {category.items.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="text-gray-200 hover:text-destaque transition-colors block px-4 py-1 text-sm"
-                                onClick={() => setIsMenuOpen(false)}
+                    <>
+                      <button
+                        className="flex items-center justify-between w-full text-claro font-medium px-2 py-2 focus:outline-none"
+                        onClick={() => setIsServicesDropdownOpen((prev) => !prev)}
+                        aria-expanded={isServicesDropdownOpen}
+                        aria-controls="servicos-dropdown"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown className={`h-4 w-4 ml-2 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      {/* Dropdown de Áreas (categorias) */}
+                      {isServicesDropdownOpen && (
+                        <div id="servicos-dropdown" className="ml-2 mt-1 space-y-1">
+                          {item.submenu.map((category) => (
+                            <div key={category.category}>
+                              <button
+                                className="flex items-center justify-between w-full text-xs font-bold text-destaque uppercase tracking-wider px-2 py-2 focus:outline-none bg-principal/80 rounded"
+                                onClick={() => setOpenCategory(openCategory === category.category ? null : category.category)}
+                                aria-expanded={openCategory === category.category}
+                                aria-controls={`servicos-categoria-${category.category}`}
                               >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                                <span>{category.category}</span>
+                                <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${openCategory === category.category ? 'rotate-180' : ''}`} />
+                              </button>
+                              {/* Dropdown de Serviços */}
+                              {openCategory === category.category && (
+                                <div id={`servicos-categoria-${category.category}`} className="ml-4 mt-1 space-y-1">
+                                  {category.items.map((subItem) => (
+                                    <Link
+                                      key={subItem.name}
+                                      href={subItem.href}
+                                      className="text-gray-200 hover:text-destaque transition-colors block px-4 py-1 text-sm rounded"
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   ) : (
                     <Link
                       href={item.href}

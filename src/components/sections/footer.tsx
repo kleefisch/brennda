@@ -43,9 +43,9 @@ const Footer = () => {
               <div className="w-10 h-10 bg-[#9A9162] rounded-md flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-base">BS</span>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center min-w-0">
+              <div className="flex flex-row items-center min-w-0 whitespace-nowrap">
                 <span className="text-lg sm:text-xl font-semibold tracking-wide text-claro truncate">BRENNDA SILVA</span>
-                <span className="text-destaque mx-0 sm:mx-2 hidden sm:inline">|</span>
+                <span className="text-destaque mx-1">|</span>
                 <span className="text-lg sm:text-xl font-light tracking-wide text-gray-300 truncate">ADVOCACIA</span>
               </div>
             </Link>

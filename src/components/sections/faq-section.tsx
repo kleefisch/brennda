@@ -67,7 +67,7 @@ const FAQSection = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors group"
               >
-                <h3 className="font-semibold text-principal pr-4 group-hover:text-destaque transition-colors">
+                <h3 className="font-semibold text-principal pr-4 group-hover:text-destaque transition-colors text-sm sm:text-base">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-destaque/10 flex items-center justify-center group-hover:bg-destaque/20 transition-colors">
@@ -87,7 +87,7 @@ const FAQSection = () => {
                 }`}
               >
                 <div className="px-6 pb-5 border-t border-gray-100">
-                  <div className="pt-4 text-gray-600 leading-relaxed">
+                  <div className="pt-4 text-gray-600 leading-relaxed text-sm sm:text-base">
                     {faq.answer}
                   </div>
                 </div>
@@ -97,16 +97,16 @@ const FAQSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 bg-claro/10 backdrop-blur-sm rounded-xl border border-destaque/20 max-w-4xl mx-auto px-0 pt-8 pb-8">
+        <div className="text-center mt-12 bg-claro/10 backdrop-blur-sm rounded-xl border border-destaque/20 max-w-4xl mx-auto px-4 sm:px-0 pt-8 pb-8">
           <h3 className="text-xl font-semibold text-claro mb-2">
             Ainda tem dúvidas?
           </h3>
           <p className="text-gray-200 mb-4">
             Entre em contato conosco para uma consulta personalizada.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <WhatsappButton size="lg" iconSize={28} className="px-4 py-6 text-lg font-semibold min-w-0">
-              <span className="uppercase">Fale agora com a advogada</span>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0">
+            <WhatsappButton size="lg" iconSize={20} className="px-3 sm:px-4 py-4 sm:py-6 text-sm sm:text-lg font-semibold min-w-0 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto">
+              <span className="uppercase text-center block leading-tight">Consultar advogada</span>
             </WhatsappButton>
           </div>
         </div>
