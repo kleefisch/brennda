@@ -7,12 +7,10 @@ import {
   Handshake,
   FileText,
   Scale,
-  Calendar,
   CheckCircle,
   MessageCircle,
   Search,
-  Users,
-  RefreshCcw
+  Users
 } from "lucide-react";
 import { Metadata } from "next";
 

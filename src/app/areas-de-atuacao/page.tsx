@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronRight, Scale, Users, Home, CreditCard } from "lucide-react";
+import { ChevronRight, Scale, Users, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import Link from "next/link";

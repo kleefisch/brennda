@@ -7,12 +7,10 @@ import {
   Handshake,
   FileText,
   Scale,
-  Calendar,
   CheckCircle,
   MessageCircle,
   Search,
-  Users,
-  Bus
+  Users
 } from "lucide-react";
 import { Metadata } from "next";
 
@@ -150,8 +148,7 @@ export default function TurismoTransportePage() {
                     <Scale className="w-8 h-8 text-destaque" />
                   </div>
                   <h3 className="text-xl font-bold text-principal mb-3">3. Ação Administrativa ou Judicial</h3>
-                  <p className="text-principal">
-                    Busca de solução junto à empresa, órgãos de defesa do consumidor ou ingresso com ação judicial.
+                  <p className="text-principal"> ca de solução junto à empresa, órgãos de defesa do consumidor ou ingresso com ação judicial.
                   </p>
                 </div>
                 <div className="text-center bg-white rounded-2xl p-6 shadow-lg">
@@ -258,7 +255,7 @@ export default function TurismoTransportePage() {
                       <CheckCircle className="w-6 h-6 text-destaque flex-shrink-0 mt-1" />
                       <div>
                         <strong className="text-destaque">Negociação Eficaz:</strong>
-                        <span className="text-principal ml-1">Busca de acordos justos e defesa firme em processos judiciais</span>
+                        <span className="text-principal ml-1"> ca de acordos justos e defesa firme em processos judiciais</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">

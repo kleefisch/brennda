@@ -7,7 +7,6 @@ import {
   Handshake,
   FileText,
   Scale,
-  Calendar,
   CheckCircle,
   MessageCircle,
   Search,

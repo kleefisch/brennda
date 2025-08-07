@@ -8,10 +8,7 @@ import {
   Scale, 
   Users, 
   FileText, 
-  Clock, 
-  Shield, 
   CheckCircle,
-  Phone,
   MessageCircle,
   Calendar,
   Search
