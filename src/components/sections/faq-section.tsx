@@ -43,10 +43,10 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 bg-principal">
+    <section className="py-10 md:py-20 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-claro mb-4">
             Perguntas Frequentes
           </h2>
@@ -97,7 +97,7 @@ const FAQSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 bg-claro/10 backdrop-blur-sm rounded-xl border border-destaque/20 max-w-4xl mx-auto px-4 sm:px-0 pt-8 pb-8">
+        <div className="text-center mt-8 md:mt-12 bg-claro/10 backdrop-blur-sm rounded-xl border border-destaque/20 max-w-4xl mx-auto px-4 sm:px-0 pt-6 md:pt-8 pb-6 md:pb-8">
           <h3 className="text-xl font-semibold text-claro mb-2">
             Ainda tem dúvidas?
           </h3>

@@ -25,7 +25,7 @@ export default function LocacaoImoveisPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-principal">
+        <section className="py-8 md:py-16 lg:py-24 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-destaque/20 text-destaque px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -56,7 +56,7 @@ export default function LocacaoImoveisPage() {
         </section>
 
         {/* Modalidades de Locação */}
-        <section className="py-16 bg-secundario">
+        <section className="py-8 md:py-16 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">

@@ -29,7 +29,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-principal">
+    <section className="py-8 lg:py-16 bg-principal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Conteúdo */}

@@ -54,7 +54,7 @@ const AboutPage = () => {
       <main className="min-h-screen bg-principal">
         
         {/* Hero Section - Azul */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-principal">
+        <section className="py-6 sm:py-12 lg:py-20 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               
@@ -133,7 +133,7 @@ const AboutPage = () => {
         </section>
 
         {/* Sobre a Advogada - Bege */}
-        <section className="py-16 lg:py-20 bg-secundario">
+        <section className="py-8 md:py-16 lg:py-20 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               
@@ -202,7 +202,7 @@ const AboutPage = () => {
         </section>
 
         {/* Metodologia - Azul - Design Reformulado */}
-        <section className="py-16 lg:py-20 bg-principal">
+        <section className="py-8 md:py-16 lg:py-20 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 lg:mb-20">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-destaque mb-4 tracking-tight drop-shadow-sm">
@@ -253,7 +253,7 @@ const AboutPage = () => {
         </section>
 
         {/* Processo de Atendimento - Bege */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-secundario">
+        <section className="py-8 sm:py-16 lg:py-24 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-principal mb-4 tracking-tight">
@@ -315,7 +315,7 @@ const AboutPage = () => {
         </section>
 
         {/* Pilares - Azul */}
-        <section className="py-20 sm:py-24 lg:py-28 bg-principal">
+        <section className="py-10 sm:py-20 lg:py-28 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-destaque mb-4 tracking-tight drop-shadow-sm">
@@ -351,7 +351,7 @@ const AboutPage = () => {
         </section>
 
         {/* CTA Final - Bege */}
-        <section className="py-16 lg:py-20 bg-secundario">
+        <section className="py-8 md:py-16 lg:py-20 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-principal mb-6">

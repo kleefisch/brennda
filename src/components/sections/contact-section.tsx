@@ -96,10 +96,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-secundario">
+    <section className="py-10 md:py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             Entre em Contato
           </h2>

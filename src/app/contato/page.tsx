@@ -18,7 +18,7 @@ export default function ContatoPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-principal">
+        <section className="py-8 md:py-16 lg:py-24 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl lg:text-6xl font-bold text-claro mb-6">

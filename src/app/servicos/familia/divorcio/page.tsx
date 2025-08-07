@@ -27,7 +27,7 @@ export default function DivorcioPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-principal">
+        <section className="py-8 md:py-16 lg:py-24 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-destaque/20 text-destaque px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -59,7 +59,7 @@ export default function DivorcioPage() {
         </section>
 
         {/* Tipos de Divórcio */}
-        <section className="py-16 bg-secundario">
+        <section className="py-8 md:py-16 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -139,7 +139,7 @@ export default function DivorcioPage() {
         </section>
 
         {/* Como Funciona */}
-        <section id="como-funciona" className="py-16 bg-principal">
+        <section id="como-funciona" className="py-8 md:py-16 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
@@ -193,7 +193,7 @@ export default function DivorcioPage() {
         </section>
 
         {/* Questões Importantes */}
-        <section className="py-16 bg-secundario">
+        <section className="py-8 md:py-16 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -251,7 +251,7 @@ export default function DivorcioPage() {
         </section>
 
         {/* Por Que Uma Advogada Especialista */}
-        <section className="py-16 bg-principal">
+        <section className="py-8 md:py-16 bg-principal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -351,7 +351,7 @@ export default function DivorcioPage() {
         </section>
 
         {/* CTA Final */}
-        <section className="py-16 bg-secundario">
+        <section className="py-8 md:py-16 bg-secundario">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">

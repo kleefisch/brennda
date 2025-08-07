@@ -58,13 +58,16 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+      {/* Header com aspas à esquerda e estrelas à direita - todas as telas */}
       <div className="mb-4">
-        <Quote className="h-8 w-8 text-destaque/20" />
-      </div>
-      <div className="flex items-center mb-4">
-        {[...Array(testimonial.rating)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-        ))}
+        <div className="flex items-center justify-between">
+          <Quote className="h-8 w-8 text-destaque/20" />
+          <div className="flex items-center">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+            ))}
+          </div>
+        </div>
       </div>
       <blockquote className="text-gray-600 mb-6 leading-relaxed">
         &ldquo;{testimonial.content}&rdquo;
@@ -209,10 +212,10 @@ function TestimonialsSection() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-secundario">
+    <section ref={sectionRef} className="py-8 lg:py-20 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 lg:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-principal mb-4">
             O que nossos clientes dizem
           </h2>
@@ -273,7 +276,7 @@ function TestimonialsSection() {
           <p className="text-gray-700 mb-4">
             Quer ser nosso próximo cliente satisfeito?
           </p>
-          <div className="flex flex-col items-center justify-center text-sm text-gray-600 gap-1">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center text-sm text-gray-600 gap-1 md:gap-2">
             <div className="flex items-center justify-center">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />

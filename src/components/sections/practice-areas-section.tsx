@@ -85,7 +85,7 @@ const practiceAreas = [
 
 const PracticeAreasSection = () => {
   return (
-    <section className="py-16 lg:py-20 bg-secundario">
+    <section className="py-8 lg:py-16 bg-secundario">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
@@ -105,7 +105,7 @@ const PracticeAreasSection = () => {
             return (
               <div
                 key={index}
-                className="group relative h-60 sm:h-64 perspective-1000"
+                className="group relative h-44 md:h-60 perspective-1000"
               >
                 {/* Card Container with flip effect */}
                 <div className="relative w-full h-full transform-style-preserve-3d transition-transform duration-700 group-hover:rotate-y-180">
