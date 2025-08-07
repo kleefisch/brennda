@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { WhatsappPopup } from "@/components/ui/whatsapp-popup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased`}
       >
         {children}
+        <WhatsappPopup />
       </body>
     </html>
   );
