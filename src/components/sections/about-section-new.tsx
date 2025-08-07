@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
-import { Award, Users, Clock, CheckCircle, IdCard } from "lucide-react";
+import { Award, Clock, CheckCircle, IdCard } from "lucide-react";
 // importação removida, usando SVG estático
 
 const AboutSection = () => {
