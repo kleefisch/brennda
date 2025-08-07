@@ -181,3 +181,28 @@ html {
 html {
   scroll-behavior: smooth;
 }
+
+/* Estilos para cards clicáveis */
+.card-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para botões com hover customizado */
+.btn-service {
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-service:hover {
+  background-color: var(--texto-destaque) !important;
+  color: var(--texto-claro) !important;
+  border-color: var(--texto-destaque) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(154, 145, 98, 0.3);
+}

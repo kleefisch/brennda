@@ -4,6 +4,48 @@ import { useState, useEffect } from "react";
 import { ChevronRight, Scale, Users, Home, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
+import Link from "next/link";
+
+// Função para mapear títulos de serviços para URLs
+function getServiceUrl(areaKey: string, title: string) {
+  const urlMap: { [key: string]: { [serviceTitle: string]: string } } = {
+    familia: {
+      "Divórcio Consensual e Litigioso": "/servicos/familia/divorcio",
+      "Guarda de Filhos e Visitas": "/servicos/familia/guarda-de-filhos",
+      "Pensão Alimentícia": "/servicos/familia/pensao-alimenticia",
+      "Inventários e Herança": "/servicos/familia/inventario-e-heranca",
+      "Testamentos, Holding Familiar e Planejamento Sucessório": "/servicos/familia/planejamento-sucessorio",
+      "Interdição, Tutela e Curatela": "/servicos/familia/interdicao-tutela-curatela",
+    },
+    consumidor: {
+      "Cobranças Indevidas ou Abusivas": "/servicos/consumidor/cobrancas-indevidas",
+      "Garantias de Produtos e Serviços": "/servicos/consumidor/garantia-legal-trocas",
+      "Telefonia, Internet e TV": "/servicos/consumidor/telefonia-internet-tv",
+      "Companhias Aéreas": "/servicos/consumidor/turismo-transporte",
+      "Planos de Saúde e Seguros": "/servicos/consumidor/planos-saude-seguros",
+      "Fraudes Financeiras e Golpes Digitais": "/servicos/consumidor/fraudes-financeiras-golpes-digitais",
+    },
+    imobiliario: {
+      "Compra e Venda de Imóveis": "/servicos/imobiliario/compra-venda-imoveis",
+      "Contratos de Locação e Distratos": "/servicos/imobiliario/locacao-imoveis",
+      "Lei do Inquilinato": "/servicos/imobiliario/lei-do-inquilinato",
+      "Usucapião": "/servicos/imobiliario/usucapiao",
+      "Ações Possessórias": "/servicos/imobiliario/acoes-possessorias",
+      "Regularização de Imóveis": "/servicos/imobiliario/regularizacao-imoveis",
+      "Questões Condominiais": "/servicos/imobiliario/questoes-condominiais",
+    },
+    civil: {
+      "Elaboração e Revisão de Contratos": "/servicos/civil/elaboracao-revisao-contratos",
+      "Ações Indenizatórias": "/servicos/civil/acoes-indenizatorias",
+      "Cobrança e Execução de Dívidas": "/servicos/civil/cobranca-execucao-dividas",
+      "Pareceres Jurídicos e Consultoria": "/servicos/civil/consultoria-pareceres-juridicos",
+      "Responsabilidade Civil": "/servicos/civil/responsabilidade-civil",
+      "Assessoria em Sinistros": "/servicos/civil/assessoria-sinistros",
+    }
+  };
+  
+  return urlMap[areaKey]?.[title] || "#";
+}
 
 const macroAreas = [
   {
@@ -16,10 +58,6 @@ const macroAreas = [
         desc: "Acompanhamento completo em separações amigáveis ou judiciais, com foco na proteção dos direitos de cada parte."
       },
       {
-        title: "Partilha de Bens",
-        desc: "Divisão justa e segura do patrimônio do casal, com análise detalhada de bens e direitos."
-      },
-      {
         title: "Guarda de Filhos e Visitas",
         desc: "Definição de guarda, convivência e regulamentação de visitas, priorizando o bem-estar das crianças."
       },
@@ -28,12 +66,16 @@ const macroAreas = [
         desc: "Ações de fixação, revisão e execução de alimentos, garantindo o sustento dos dependentes."
       },
       {
-        title: "Inventários, Testamentos e Sucessões",
+        title: "Inventários e Herança",
         desc: "Planejamento e regularização da transmissão de bens, com segurança jurídica para herdeiros."
       },
       {
-        title: "Holding Familiar e Planejamento Sucessório",
+        title: "Testamentos, Holding Familiar e Planejamento Sucessório",
         desc: "Estratégias para proteção patrimonial e sucessão planejada, evitando conflitos futuros."
+      },
+      {
+        title: "Interdição, Tutela e Curatela",
+        desc: "Proteção legal de pessoas incapazes, idosos e menores, garantindo seus direitos e patrimônio."
       }
     ]
   },
@@ -63,8 +105,8 @@ const macroAreas = [
         desc: "Defesa contra negativas de cobertura, reajustes abusivos e outros conflitos com planos de saúde e seguradoras."
       },
       {
-        title: "Fraudes Financeiras e Compras Online",
-        desc: "Soluções para vítimas de fraudes, golpes virtuais e problemas em compras pela internet."
+        title: "Fraudes Financeiras e Golpes Digitais",
+        desc: "Proteção jurídica especializada contra fraudes financeiras e golpes digitais, com recuperação de valores perdidos."
       }
     ]
   },
@@ -80,6 +122,10 @@ const macroAreas = [
       {
         title: "Contratos de Locação e Distratos",
         desc: "Elaboração, revisão e rescisão de contratos de locação, protegendo locador e locatário."
+      },
+      {
+        title: "Lei do Inquilinato",
+        desc: "Proteção jurídica em relações locatícias: revisão de aluguel, ações de despejo e direitos de locadores e locatários."
       },
       {
         title: "Usucapião",
@@ -161,16 +207,16 @@ function getServiceIcon(title: string) {
     // Família e Sucessões
     case "Divórcio Consensual e Litigioso":
       return <Handshake className="w-8 h-8 text-destaque mb-2" />;
-    case "Partilha de Bens":
-      return <Scale className="w-8 h-8 text-destaque mb-2" />;
     case "Guarda de Filhos e Visitas":
       return <Users className="w-8 h-8 text-destaque mb-2" />;
     case "Pensão Alimentícia":
       return <Banknote className="w-8 h-8 text-destaque mb-2" />;
-    case "Inventários, Testamentos e Sucessões":
+    case "Inventários e Herança":
       return <FileText className="w-8 h-8 text-destaque mb-2" />;
-    case "Holding Familiar e Planejamento Sucessório":
+    case "Testamentos, Holding Familiar e Planejamento Sucessório":
       return <Home className="w-8 h-8 text-destaque mb-2" />;
+    case "Interdição, Tutela e Curatela":
+      return <UserCheck className="w-8 h-8 text-destaque mb-2" />;
 
     // Consumidor
     case "Cobranças Indevidas ou Abusivas":
@@ -183,7 +229,7 @@ function getServiceIcon(title: string) {
       return <Plane className="w-8 h-8 text-destaque mb-2" />;
     case "Planos de Saúde e Seguros":
       return <Stethoscope className="w-8 h-8 text-destaque mb-2" />;
-    case "Fraudes Financeiras e Compras Online":
+    case "Fraudes Financeiras e Golpes Digitais":
       return <ShoppingCart className="w-8 h-8 text-destaque mb-2" />;
 
     // Imobiliário
@@ -191,6 +237,8 @@ function getServiceIcon(title: string) {
       return <Home className="w-8 h-8 text-destaque mb-2" />;
     case "Contratos de Locação e Distratos":
       return <FileSignature className="w-8 h-8 text-destaque mb-2" />;
+    case "Lei do Inquilinato":
+      return <Scale className="w-8 h-8 text-destaque mb-2" />;
     case "Usucapião":
       return <KeyRound className="w-8 h-8 text-destaque mb-2" />;
     case "Ações Possessórias":
@@ -286,15 +334,33 @@ export default function AreasDeAtuacao() {
               <h2 className="text-2xl lg:text-3xl font-bold text-principal mb-3 text-left">{area.label}</h2>
               <p className="text-base mb-6 text-left">{area.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
-                {area.services.map((service) => (
-                  <div key={service.title} className="bg-white rounded-xl p-4 border border-claro/10 flex flex-col items-center text-center gap-2 shadow-sm">
-                    <div className="flex-shrink-0">
-                      {getServiceIcon(service.title)}
+                {area.services.map((service) => {
+                  const serviceUrl = getServiceUrl(area.key, service.title);
+                  return (
+                    <div key={service.title} className="bg-white rounded-xl border border-claro/10 shadow-sm card-clickable group">
+                      <Link href={serviceUrl} className="block h-full">
+                        <div className="p-4 flex flex-col items-center text-center gap-2 h-full">
+                          <div className="flex-shrink-0">
+                            {getServiceIcon(service.title)}
+                          </div>
+                          <span className="text-lg font-semibold text-principal mb-1 flex-shrink-0 group-hover:text-destaque transition-colors">{service.title}</span>
+                          <p className="text-principal text-sm leading-relaxed flex-1 flex items-center">{service.desc}</p>
+                          <div className="mt-4 w-full">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full text-destaque border-destaque btn-service"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              Saiba Mais
+                              <ChevronRight className="w-4 h-4 ml-1" />
+                            </Button>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                    <span className="text-lg font-semibold text-principal mb-1 flex-shrink-0">{service.title}</span>
-                    <p className="text-principal text-sm leading-relaxed flex-1 flex items-center">{service.desc}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
               <div className="text-center mt-8">
                 <h3 className="text-xl lg:text-2xl font-bold text-principal mb-2">

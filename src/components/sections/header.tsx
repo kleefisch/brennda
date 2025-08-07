@@ -66,6 +66,7 @@ const Header = () => {
             { name: "Garantia Legal e Trocas", href: "/servicos/consumidor/garantia-legal-trocas" },
             { name: "Ação Revisional de Juros", href: "/servicos/consumidor/acao-revisional-juros" },
             { name: "Planos de Saúde e Seguros", href: "/servicos/consumidor/planos-saude-seguros" },
+            { name: "Fraudes Financeiras e Golpes Digitais", href: "/servicos/consumidor/fraudes-financeiras-golpes-digitais" },
           ]
         },
         {
@@ -88,6 +89,7 @@ const Header = () => {
             { name: "Ações Possessórias", href: "/servicos/imobiliario/acoes-possessorias" },
             { name: "Compra e Venda de Imóveis", href: "/servicos/imobiliario/compra-venda-imoveis" },
             { name: "Locação de Imóveis", href: "/servicos/imobiliario/locacao-imoveis" },
+            { name: "Lei do Inquilinato", href: "/servicos/imobiliario/lei-do-inquilinato" },
             { name: "Regularização de Imóveis", href: "/servicos/imobiliario/regularizacao-imoveis" },
             { name: "Questões Condominiais", href: "/servicos/imobiliario/questoes-condominiais" },
             { name: "Usucapião", href: "/servicos/imobiliario/usucapiao" },
