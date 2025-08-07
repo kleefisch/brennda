@@ -34,15 +34,15 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Imagem */}
           <div className="relative order-2 lg:order-1 flex items-center justify-center lg:justify-start">
-            <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-2xl">
+            <div className="relative w-full h-full min-h-[400px] lg:min-h-[600px]">
               <div className="absolute inset-0 bg-gradient-to-br from-destaque/10 to-claro/5 rounded-2xl transform rotate-3"></div>
-              <div className="relative aspect-[3/4] w-full">
+              <div className="relative w-full h-full">
                 <Image
                   src="/images/about-picture.jpg"
                   alt="Dra. Brennda no escritório de advocacia"
                   fill
-                  sizes="(max-width: 640px) 380px, (max-width: 1024px) 580px, 750px"
-                  className="rounded-2xl shadow-xl object-cover object-top z-10"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  className="rounded-2xl shadow-xl object-cover z-10"
                   priority
                 />
               </div>
