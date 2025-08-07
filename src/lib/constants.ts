@@ -1,9 +1,11 @@
+import { ENV } from './config';
+
 // Constantes da aplicação
 export const SITE_CONFIG = {
   name: "Dra. Brennda Silva - Advocacia Especializada",
   shortName: "Brennda Silva Advocacia",
   description: "Advocacia especializada com mais de 10 anos de experiência em Direito de Família, Civil, Contratos e Direito do Consumidor. Atendimento personalizado, soluções jurídicas eficazes e consulta gratuita em São Paulo.",
-  url: "https://brennda-advocacia.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://brennda-advocacia.vercel.app",
   ogImage: "/og-image.jpg",
   keywords: [
     "advocacia especializada são paulo",
