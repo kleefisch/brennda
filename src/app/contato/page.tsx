@@ -1,15 +1,31 @@
+import { Metadata } from "next";
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import ContactForm from "@/components/sections/contact-form";
 import { Button } from "@/components/ui/button";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 import Link from "next/link";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contato - Advocacia Brennda Silva | Agende sua Consulta Gratuita",
-  description: "Entre em contato com a Dra. Brennda Silva. Consulta gratuita, atendimento 24h no WhatsApp. Advocacia especializada em Direito de Família, Civil e Consumidor.",
-  keywords: "contato, advocacia, consulta gratuita, Brennda Silva, advogada, direito de família, WhatsApp, telefone",
+  title: "Contato - Dra. Brennda Silva | Agende sua Consulta Jurídica Gratuita",
+  description: "Entre em contato com a Dra. Brennda Silva. Consulta jurídica gratuita, atendimento especializado via WhatsApp. Advocacia em Direito de Família, Civil, Consumidor e Imobiliário em São Paulo.",
+  keywords: [
+    "contato advogada são paulo",
+    "consulta gratuita advogada", 
+    "Brennda Silva contato",
+    "advogada direito família contato",
+    "WhatsApp advogada",
+    "agendar consulta jurídica"
+  ],
+  alternates: {
+    canonical: "https://brennda-advocacia.vercel.app/contato",
+  },
+  openGraph: {
+    title: "Contato - Dra. Brennda Silva | Consulta Gratuita",
+    description: "Agende sua consulta jurídica gratuita com a Dra. Brennda Silva. Atendimento especializado em São Paulo.",
+    url: "https://brennda-advocacia.vercel.app/contato",
+    type: "website",
+  },
 };
 
 export default function ContatoPage() {
@@ -25,16 +41,25 @@ export default function ContatoPage() {
                 Entre em Contato
               </h1>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-                Agende sua consulta gratuita e conte com orientação jurídica especializada.
+                Agende sua consulta jurídica gratuita e conte com orientação especializada para o seu caso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <WhatsappButton size="lg" iconSize={28} className="bg-destaque hover:bg-destaque/90 text-claro">
-                  <span className="uppercase">FALAR NO WHATSAPP</span>
+                <WhatsappButton 
+                  size="lg" 
+                  iconSize={28} 
+                  className="bg-destaque hover:bg-destaque/90 text-claro"
+                >
+                  <span className="uppercase">Falar no WhatsApp</span>
                 </WhatsappButton>
-                <Button size="lg" variant="outline" asChild className="border-claro text-claro hover:bg-claro hover:text-principal">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  asChild 
+                  className="border-claro text-claro hover:bg-claro hover:text-principal"
+                >
                   <Link 
                     href="#contato"
-                    className="transition-colors duration-200 hover:bg-[#29406a] hover:text-destaque focus-visible:ring-2 focus-visible:ring-destaque focus:outline-none"
+                    className="transition-colors duration-200"
                   >
                     Preencher Formulário
                   </Link>
@@ -45,9 +70,9 @@ export default function ContatoPage() {
         </section>
 
         {/* Contact Section */}
-        <div id="contato">
+        <section id="contato" aria-label="Formulário de contato">
           <ContactForm />
-        </div>
+        </section>
       </main>
       <Footer />
     </>
